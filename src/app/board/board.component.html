@@ -1,0 +1,29 @@
+
+<div id="board" class="grid-container" (click)="targetCard($event)">
+  <div id="X1" class="grid-item">Square 1</div>
+  <div id="X2" class="grid-item">Square 2</div>
+  <div id="X3" class="grid-item">Square 3</div>  
+  <div id="X4" class="grid-item court">
+    <div id="C1" class="card">Card One</div>
+    <div id="C2" class="card">Card Two</div>
+    <div id="C3" class="card">Card Three</div>
+  </div>
+  <div id="X5" class="grid-item">Square 4</div> 
+  <div id="X5" class="grid-item">Square 5</div>
+  <div id="X6" class="grid-item rotate_270">Square 6</div>  
+  <div id="X7" class="grid-item rotate_90">Square 7</div>
+  <div id="X8" class="grid-item rotate_270">Square 8</div>
+  <div id="X9" class="grid-item rotate_90">Square 9</div>
+  <div id="X10" class="grid-item rotate_180">Square 10</div>
+  <div id="X11" class="grid-item rotate_180">Square 11</div>  
+  <div id="X12" class="grid-item rotate_180">Square 12</div>
+  <div id="X13" class="grid-item rotate_180">Square 13</div>
+  <div id="X14" class="grid-item rotate_180">Square 14</div>  
+</div>
+<!-- <img src="/src/assets/painting01.jpg"> -->
+<div id="status">
+  <button (click)="DoClick($event)" class = "one two three" id="test">Click</button>
+  <button (click)="addColor($event)">Add Red</button>
+  <button (click)="removeColor($event)">Clear</button>
+  <div id="answer">{{clickMessage}}</div>
+</div>
