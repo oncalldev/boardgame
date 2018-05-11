@@ -1,0 +1,39 @@
+{
+    "lasttime": "2018-05-11T23:19:36.318Z",
+    "lastturn": "P1",
+    "players": [
+      {
+        "id": "P1",
+        "name": "Player 1",
+        "avatar": "Avatar 1",
+        "location": "X1",
+        "resources": {
+          "money": "100",
+          "tokens": "10",
+          "points": "1"
+        }
+      },    
+      {
+        "id": "P2",
+        "name": "Player 2",
+        "avatar": "Avatar 2",
+        "location": "X2",
+        "resources": {
+          "money": "200",
+          "tokens": "20",
+          "points": "2"
+        }
+      },
+      {
+        "id": "P3",
+        "name": "Player 3",
+        "avatar": "Avatar 3",
+        "location": "X3",
+        "resources": {
+          "money": "300",
+          "tokens": "30",
+          "points": "3"
+        }
+      }
+    ]
+  }
