@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { squareService } from 'src/square.service';
+import { Square } from 'src/square';
 
 
 @Component({
@@ -8,10 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
   clickMessage : string = '';
-  constructor() { }
-
+  squares: Square[];
+ 
+  constructor(private _squareService: squareService){}
+  
   ngOnInit() {
+    this.getSquares();
+    }
+
+  getSquares(): void {
+    this._squareService.getSquares()
+    .subscribe(squaresData => squares = squaresData); 
+    console.log(this.squares);
   }
+  
   doClick(event) {
     var target = event.target || event.srcElement || event.currentTarget;
     console.log("target:", target);

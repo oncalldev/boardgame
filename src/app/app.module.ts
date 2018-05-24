@@ -8,6 +8,7 @@ import {MaterialModule} from './shared/material.module';
 import { TeststyleComponent } from './teststyle/teststyle.component';
 import { TesthttpComponent } from './testhttp/testhttp.component';
 import { TestfilterComponent } from './testfilter/testfilter.component';
+import { squareService } from '../square.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { TestfilterComponent } from './testfilter/testfilter.component';
     MaterialModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [squareService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

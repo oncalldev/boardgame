@@ -74,7 +74,7 @@ body {
     border-radius: 5px;
     padding: 20px;
     border: 1px solid black;
-    place-self: center;
+    /* place-self: center; */
   }
   #status {
       margin-top: 10px;
