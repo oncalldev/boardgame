@@ -8,7 +8,8 @@ import {MaterialModule} from './shared/material.module';
 import { TeststyleComponent } from './teststyle/teststyle.component';
 import { TesthttpComponent } from './testhttp/testhttp.component';
 import { TestfilterComponent } from './testfilter/testfilter.component';
-import { squareService } from '../square.service';
+import { squareService } from '../app/square.service';
+import { messageService } from '../app/message.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { squareService } from '../square.service';
     MaterialModule,
     HttpClientModule
   ],
-  providers: [squareService],
+  providers: [squareService,
+              messageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

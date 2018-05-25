@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { MessageService } from './message.service';
+import { messageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, tap, filter } from 'rxjs/operators';
+
 
 import { Square } from './square';
 // import { HEROES } from './mock-heroes';
@@ -12,24 +13,31 @@ const httpOptions = {
 };
 
 @Injectable()
-export class SquareService {
-  private squaresUrl = 'api/squares';  // URL to web api
+export class squareService {
+  private squaresUrl = './configuration/squares.json';  // URL to web api
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
+    private messageService: messageService) { }
 
-  /** GET hero by id. Will 404 if id not found */
-  getSquare(id: number): Observable<Square> {
+  /** GET square by id. Will 404 if id not found */
+  getSquarex(id: string): Observable<Square> {
     const url = `${this.squaresUrl}/${id}`;
     return this.http.get<Square>(url).pipe(
       tap(_ => this.log(`fetched square id=${id}`)),
       catchError(this.handleError<Square>(`getSquare id=${id}`))
     );
   }
+  getSquare(id: string): Observable<Square> {
+    return this.http.get<Square>(this.squaresUrl)
+    .pipe(
+      //filter(square => square.id === id),
+      tap(square => this.log('fetched square')),
+      catchError(this.handleError('getSquare'))
+    );
+  }
 
-
-/** GET heroes from the server */
+/** GET squares from the server */
 getSquares (): Observable<Square[]> {
     return this.http.get<Square[]>(this.squaresUrl)
       .pipe(
@@ -64,14 +72,14 @@ getSquares (): Observable<Square[]> {
   
   /** POST: add a new hero to the server */
   addSquare (square: Square): Observable<Square> {
-    return this.http.post<Square>(this.squaresUrl, square, httpOptions).pipe(
+    return this.http.post<Square>(this.squaresUrl, square).pipe(
       tap((square: Square) => this.log(`added square w/ id=${square.id}`)),
       catchError(this.handleError<Square>('addSquare'))
     );
   }  
   /** DELETE: delete the hero from the server */
-  deleteSquare (square: Square | number): Observable<Square> {
-    const id = typeof square === 'number' ? square : square.id;
+  deleteSquare (square: Square | string): Observable<Square> {
+    const id = typeof square === 'string' ? square : square.id;
     const url = `${this.squaresUrl}/${id}`;
 
     return this.http.delete<Square>(url, httpOptions).pipe(
@@ -81,7 +89,7 @@ getSquares (): Observable<Square[]> {
   } 
 /** PUT: update the hero on the server */
   updateSquare (square: Square): Observable<any> {
-    return this.http.put(this.squaresUrl, square, httpOptions).pipe(
+    return this.http.put(this.squaresUrl, square).pipe(
       tap(_ => this.log(`updated square id=${square.id}`)),
       catchError(this.handleError<any>('updateSquare'))
     );
