@@ -31,7 +31,7 @@ export class squareService {
   getSquare(id: string): Observable<Square> {
     return this.http.get<Square>(this.squaresUrl)
     .pipe(
-      //filter(square => square.id === id),
+      filter(square => square.id === 'X7'),
       tap(square => this.log('fetched square')),
       catchError(this.handleError('getSquare'))
     );
@@ -53,7 +53,7 @@ getSquares (): Observable<Square[]> {
  */
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
+      console.log("Error: " + error);
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 

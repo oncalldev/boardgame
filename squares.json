@@ -1,0 +1,60 @@
+{
+	"squares": [
+        {
+			"id": "X1",
+			"color": "red"
+		},
+		{
+			"id": "X2",
+			"color": "blue"
+        },
+        {   
+            "id" : "X3",
+            "color" : "yellow"
+        },
+        {
+            "id" : "X4",
+            "color" : "blue"
+        },
+        {
+			"id": "X5",
+			"color": "red"
+		},
+		{
+			"id": "X6",
+			"color": "blue"
+        },
+        {   
+            "id" : "X7",
+            "color" : "yellow"
+        },
+        {
+            "id" : "X8",
+            "color" : "blue"
+        }, 
+        {
+			"id": "X9",
+			"color": "red"
+		},
+		{
+			"id": "X10",
+			"color": "blue"
+        },
+        {   
+            "id" : "X11",
+            "color" : "yellow"
+        },
+        {
+            "id" : "X12",
+            "color" : "blue"
+        },  
+        {   
+            "id" : "X13",
+            "color" : "yellow"
+        },
+        {
+            "id" : "X14",
+            "color" : "blue"
+        }              
+	]
+}
