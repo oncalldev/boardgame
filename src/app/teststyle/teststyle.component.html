@@ -1,3 +1,30 @@
-<p [class]="colorblue">
+<!-- <p [class]="color">
   teststyle works!
-</p>
+</p> -->
+<!-- <h4 *ngIf="squares">
+  <div>{{squares[0].id}}</div>
+</h4> -->
+<!-- <div id="board" class="grid-container" (click)="targetCard($event)">
+  <div id="X1" class="grid-item">Square 1</div>
+  <div id="X2" class="grid-item">Square 2</div>
+  <div id="X3" class="grid-item">Square 3</div>  
+  <div id="X4" class="grid-item">Square 4</div> 
+  <div id="X5" class="grid-item">Square 5</div>
+</div> -->
+
+<div id="board" class="grid-container">
+  <div *ngFor="let square of squares" [id] = "square.id" class="grid-item {{square.color}}" (click)="targetCard($event)">{{square.id}}</div>
+</div>
+
+<div>
+  Message: {{clickMessage}}
+</div>
+<!-- <h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let hero of heroes" class="col-1-4"
+      routerLink="/detail/{{hero.id}}">
+    <div class="module hero">
+      <h4>{{hero.name}}</h4>
+    </div>
+  </a>
+</div> -->

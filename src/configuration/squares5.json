@@ -1,0 +1,34 @@
+[
+
+        {
+			"id" : "X1",
+            "color": "red",
+            "left" : "",
+            "right" : "X2"
+		},
+		{
+			"id": "X2",
+            "color": "blue",
+            "left" : "X1",
+            "right" : "X3"
+        },
+        {   
+            "id" : "X3",
+            "color" : "yellow",
+            "left" : "X2",
+            "right" : "X4"
+        },
+        {
+            "id" : "X4",
+            "color" : "blue",
+            "left" : "X3",
+            "right" : "X5"
+        },
+        {
+			"id": "X5",
+            "color": "red",
+            "left" : "X4",
+            "right" : "X1"
+		}           
+
+    ]

@@ -10,32 +10,45 @@ import { Square } from '../square';
 })
 export class BoardComponent implements OnInit {
   clickMessage : string = '';
-  public squares: Square[] = [];
+  public squares: Square[];
   public square: Square;
 
   constructor(private _squareService: squareService){}
   
   ngOnInit() {
-    this.getSquare('X7');
+    //this.getSquares();
+    //this.getSquare('X7');
+    //this.getSquareMap('X7');
     }
 
-  getSquares(): void {
-    this._squareService.getSquares()
-    .subscribe(squares => {
-      this.squares = squares;
-      console.log(this.squares);
-    })
-  }
+  // getSquares(): void {
+  //   this._squareService.getSquares()
+  //   .subscribe(
+  //     sq => {
+  //     this.squares = sq;
+  //     }
+  //   )
+  // }
 
-  getSquare(id:string): void {
-    this._squareService.getSquare(id)
-    .subscribe(square => {
-      this.square = square;
-      console.log(this.square);
-    }
+  // getSquare(id:string): void {
+  //   this._squareService.getSquare(id)
+  //   .subscribe(square => {
+  //     console.log("Returned from Service");
+  //     this.square = square;
+  //     console.log(this.square);
+  //   }
+  //   )
+  // }
 
-    )
-  }
+  // getSquareMap(id:string): void {
+  //   this._squareService.getSquareMap(id)
+  //   .subscribe(square => {
+  //     console.log("Returned from Service");
+  //     this.square = square[0];
+  //     //console.log(this.square);
+  //   }
+  //   )
+  // }
 
   doClick(event) {
     var target = event.target || event.srcElement || event.currentTarget;
