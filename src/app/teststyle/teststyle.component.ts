@@ -30,6 +30,7 @@ export class TeststyleComponent implements OnInit {
   array2 : Square[];
 
   private squaresUrl = "./configuration/sqaures5.json";
+  private squareID: string;
 
   constructor(
     private squareService: squareService,
@@ -55,6 +56,42 @@ export class TeststyleComponent implements OnInit {
   targetCard(event) {
     //var x = document.getElementById("board");
     this.clickMessage = event.target.id;
+  }
+
+  changeColor(event) {
+    this.squareID = "X5";
+    this.clickMessage = "Color Change Request";
+    var classList = document.getElementById(this.squareID).classList;
+    console.log(classList);
+
+    document.getElementById(this.squareID).classList.remove("clr_red", "clr_blue", "clr_yellow");
+    //document.getElementById(this.squareID).classList.remove(this.removeClasses() );
+    //document.getElementById(this.squareID).classList.add("green");
+    //document.getElementById(this.squareID).classList.add(this.getClasses());
+  }
+  removeClasses_old() : string {
+    var arr : string[] = ["clr_red", "clr_blue", "clr_yellow"];
+    var str : string = '"clr_red","clr_blue","clr_yellow"';
+    console.log(str);
+    return str;
+  }
+
+  getClasses() : string {
+    return ("clr_green");
+  }
+  
+  arrayFilter() {
+    
+  }
+
+  removeClasses(){
+    var arr: string[] = ["clr_red", "dummy1", "clr_blue", "dummy2", "clr_yellow"];
+    var filtered = arr.filter(function(x){
+      return x.startsWith("clr_");
+    })
+    for (let i = 0; i < filtered.length; i++){
+      document.getElementById(this.squareID).classList.remove(filtered[i]);
+    }
   }
 
   // readSquares(id: string): Observable<Square> {
