@@ -1,0 +1,9 @@
+{
+    "rows" : 5,
+    "columns" : 3,
+    "levels" : 1,
+    "box_width" : "100",
+    "box_height" : "100",
+    "default_box_background_color" : "green",
+    "default_text_color" : "black"
+}

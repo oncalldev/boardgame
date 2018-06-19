@@ -1,0 +1,34 @@
+<!-- <div class="wrapper">
+  <div id="1/1" class="box">1</div>
+  <div class="box red">2</div>
+  <div class="box">3</div>
+  <div class="box">4</div>
+  <div class="box hide">5</div>
+  <div class="box">6</div>
+  <div class="box">7</div>
+  <div class="box">8</div>
+  <div class="box">9</div>
+  <div class="box">10</div>
+  <div class="box hide">11</div>
+  <div class="box">12</div>
+  <div class="box">13</div>
+  <div class="box">14</div>
+  <div class="box">15</div>
+</div>
+<br>
+<button type="button" class="btn btn-primary" (click)="changeColor()" >Change Color</button>
+<br> -->
+<!-- <div class = "wrapper">
+<div class = "box" style="background-color:blue">box1</div>
+<div class = "box" [style.backgroundColor]= "green" >{{red}}</div>
+</div> -->
+<!-- <div class="wrapper">
+  <div class = "box" [ngStyle]="{'grid-area' : boxes[0] }">Box 1</div>   
+  <div class = "box" [ngStyle]="{'grid-area' : boxes[1] }">Box 2</div>  
+  <div class = "box" [ngStyle]="{'grid-area' : boxes[2] }">Box 3</div>
+</div> -->
+<div class="wrapper">
+  <div *ngFor= 'let box of boxes; let i = index' class="box" 
+    [ngStyle]="{ 'grid-area' : box, 'color': 'red', 'background-color' : 'green' }">{{i+1}}
+  </div>
+</div>

@@ -11,6 +11,7 @@ import { TestFilterComponent } from './testfilter/testfilter.component';
 import { squareService } from '../app/square.service';
 import { messageService } from '../app/message.service';
 import { TestrxjsComponent } from './testrxjs/testrxjs.component';
+import { Board01Component } from './board01/board01.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TestrxjsComponent } from './testrxjs/testrxjs.component';
     TeststyleComponent,
     TesthttpComponent,
     TestFilterComponent,
-    TestrxjsComponent
+    TestrxjsComponent,
+    Board01Component
   ],
   imports: [
     BrowserModule,
