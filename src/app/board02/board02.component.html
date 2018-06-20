@@ -1,0 +1,6 @@
+<div class="wrapper">
+  <div *ngFor= 'let box of boxes; let i = index' class="box"
+    [ngStyle]="{ 'grid-area' : box.gridArea, 'background-color' : box.bgColor }">{{i+1}}  
+    <!-- [ngStyle]="{ 'grid-area' : box, 'color': 'red', 'background-color' : 'green' }">{{i+1}} -->
+  </div>
+</div>

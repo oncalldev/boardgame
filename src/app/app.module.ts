@@ -10,12 +10,13 @@ import { TesthttpComponent } from './testhttp/testhttp.component';
 import { TestFilterComponent } from './testfilter/testfilter.component';
 import { squareService } from '../app/square.service';
 import { messageService } from '../app/message.service';
-import { boardService} from '../app/board.service';
+import { boardService} from '../app/services/board.service';
 import { TestrxjsComponent } from './testrxjs/testrxjs.component';
 import { Board01Component } from './board01/board01.component';
 import { TestarrayComponent } from './testarray/testarray.component';
 import { Testhttp01Component } from './testhttp01/testhttp01.component';
 import { Testhttp02Component } from './testhttp02/testhttp02.component';
+import { Board02Component } from './board02/board02.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { Testhttp02Component } from './testhttp02/testhttp02.component';
     Board01Component,
     TestarrayComponent,
     Testhttp01Component,
-    Testhttp02Component
+    Testhttp02Component,
+    Board02Component
   ],
   imports: [
     BrowserModule,
