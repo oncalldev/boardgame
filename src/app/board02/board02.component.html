@@ -1,6 +1,13 @@
 <div class="wrapper">
-  <div *ngFor= 'let box of boxes; let i = index' class="box"
+  <div *ngFor= 'let box of boxes; let i = index' class="box" [id] = box.gridArea
     [ngStyle]="{ 'grid-area' : box.gridArea, 'background-color' : box.bgColor }">{{i+1}}  
     <!-- [ngStyle]="{ 'grid-area' : box, 'color': 'red', 'background-color' : 'green' }">{{i+1}} -->
   </div>
 </div>
+<br>
+<button class="btn"(click)="movePlayer($event)"  >Click Me</button>
+<br>
+
+<div id="player1" class="circle red"></div>
+<br>
+<div id="player2" class="circle yellow"></div>

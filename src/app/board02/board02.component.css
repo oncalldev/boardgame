@@ -45,3 +45,22 @@ body {
   .red {
     background-color: red;
   }
+
+  .yellow {
+    background-color: yellow;
+  }
+  #testbox {
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+    position: absolute;
+  }
+  .circle {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px; 
+    border: 1px solid black;
+    margin: 20px;
+    position: absolute;
+    /* width and height can be anything, as long as they're equal */
+  }

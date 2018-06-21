@@ -34,6 +34,18 @@ export class Board02Component implements OnInit {
     )
   }
 
+  movePlayer(event) {
+    var box1 = document.getElementById("1/1/2/2");
+    var box2 = document.getElementById("1/2/2/3");
+    var box11 = document.getElementById("4/2/5/3");
+    var player1 = document.getElementById("player1"); 
+    var player2 = document.getElementById("player2"); 
+    player1.style.left = (box1.offsetLeft + 20).toString() + "px";
+    player1.style.top = (box1.offsetTop + 20).toString() + "px";
+    player2.style.left = (box11.offsetLeft + 20).toString() + "px";
+    player2.style.top = (box11.offsetTop + 20).toString() + "px";  
+  }
+
   displayBoard() {
     console.log("Displaying Board");
   }
