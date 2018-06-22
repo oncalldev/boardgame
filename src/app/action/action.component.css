@@ -1,0 +1,30 @@
+#action {
+    display: grid;
+    grid-template-rows: 200px 200px 200px;
+    width: 300px;
+    height:600px;
+    border: 1px solid black;
+    margin: 10px;
+    background-color: lightgreen;
+}
+.action_dice {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    border: 1px solid black;
+}
+.action_cards {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    border: 1px solid black;
+}
+.action_spinner {
+    display: grid;
+    grid-template-rows: 1fr 1fr;    
+    border: 1px solid black;
+}
+.top {
+    margin: auto;
+}
+.results {
+    margin-left: 50px;
+}

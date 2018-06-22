@@ -13,4 +13,8 @@ export class boardService {
     return this.http
       .get("./configuration/board.json")
   }
+
+  getNextBox() {
+    
+  }
 }

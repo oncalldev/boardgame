@@ -17,6 +17,8 @@ import { TestarrayComponent } from './testarray/testarray.component';
 import { Testhttp01Component } from './testhttp01/testhttp01.component';
 import { Testhttp02Component } from './testhttp02/testhttp02.component';
 import { Board02Component } from './board02/board02.component';
+import { ActionComponent } from './action/action.component';
+import { SurfaceComponent } from './surface/surface.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { Board02Component } from './board02/board02.component';
     TestarrayComponent,
     Testhttp01Component,
     Testhttp02Component,
-    Board02Component
+    Board02Component,
+    ActionComponent,
+    SurfaceComponent
   ],
   imports: [
     BrowserModule,

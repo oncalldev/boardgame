@@ -1,13 +1,23 @@
-<div class="wrapper">
-  <div *ngFor= 'let box of boxes; let i = index' class="box" [id] = box.gridArea
-    [ngStyle]="{ 'grid-area' : box.gridArea, 'background-color' : box.bgColor }">{{i+1}}  
-    <!-- [ngStyle]="{ 'grid-area' : box, 'color': 'red', 'background-color' : 'green' }">{{i+1}} -->
+
+
+  <div class="wrapper">
+    <div *ngFor= 'let box of boxes; let i = index' class="box" [id] = box.gridArea
+      [ngStyle]="{ 'grid-area' : box.gridArea, 'background-color' : box.bgColor, 'visibility' : box.visibility }">{{i+1}}  
+      <!-- [ngStyle]="{ 'grid-area' : box, 'color': 'red', 'background-color' : 'green' }">{{i+1}} -->
+    </div>
+    <!-- <div class="info">
+      Information
+    </div>
   </div>
-</div>
-<br>
-<button class="btn"(click)="movePlayer($event)"  >Click Me</button>
+  <div id="action">
+    <div class="action_split"></div>
+    <div class="action_split"></div>
+    <div class="action_split"></div>
+  </div> -->
+
+<!-- <button class="btn" (click)="movePlayer($event)"  >Click Me</button>
 <br>
 
 <div id="player1" class="circle red"></div>
 <br>
-<div id="player2" class="circle yellow"></div>
+<div id="player2" class="circle yellow"></div> -->

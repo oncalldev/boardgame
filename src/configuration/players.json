@@ -1,0 +1,16 @@
+[
+    {
+        "id" : "P1",
+        "status" : "A",
+        "location" : "L1",
+        "color" : "red",
+        "money" : 0
+    },
+    {
+        "id" : "P2",
+        "status" : "A",
+        "location" : "L1",
+        "color" : "yellow",
+        "money" : 0
+    }
+]

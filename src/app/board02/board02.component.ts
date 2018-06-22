@@ -13,6 +13,7 @@ import { Box } from '../models/box';
 export class Board02Component implements OnInit {
   board: Board;
   boxes: Box[];
+  myTimer: any;
 
   constructor(private boardsvc : boardService) { }
 
@@ -22,6 +23,7 @@ export class Board02Component implements OnInit {
   }
 
   getBoard() {
+
     this.boardsvc.getBoard().subscribe(
       data => {
         this.board = data as Board;
@@ -40,15 +42,45 @@ export class Board02Component implements OnInit {
     var box11 = document.getElementById("4/2/5/3");
     var player1 = document.getElementById("player1"); 
     var player2 = document.getElementById("player2"); 
-    player1.style.left = (box1.offsetLeft + 20).toString() + "px";
-    player1.style.top = (box1.offsetTop + 20).toString() + "px";
-    player2.style.left = (box11.offsetLeft + 20).toString() + "px";
-    player2.style.top = (box11.offsetTop + 20).toString() + "px";  
+
+    var obj = { 
+      player: player1, 
+      incr: 0
+    };
+    
+
+    //this.slowMove(player1);
+    this.myTimer = setInterval(this.slowMove, 500, obj);
+
+    // player1.style.left = (box1.offsetLeft + 20).toString() + "px";
+    // player1.style.top = (box1.offsetTop + 20).toString() + "px";
+    // player2.style.left = (box11.offsetLeft + 20).toString() + "px";
+    // player2.style.top = (box11.offsetTop + 20).toString() + "px";  
   }
 
+  slowMove(obj) {
+
+      obj.player.style.left = (obj.player.offsetLeft + obj.incr).toString() + "px";
+      obj.incr += 30;
+      if (obj.incr > 200) {
+        clearInterval(this.myTimer)
+        console.log("Cleared");
+      }
+      console.log(obj.incr);
+  }
+  
   displayBoard() {
     console.log("Displaying Board");
   }
 
+  convertStatus(status : string) : string {
+    switch(status) {
+      case 'H':
+          return 'hidden';
+
+      default:
+          return 'visible';
+  }   
+  }
 
 }

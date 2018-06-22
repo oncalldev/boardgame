@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Square} from "./square"; 
 import { catchError, map, tap, filter,take} from 'rxjs/operators';
+import { Box } from "./models/box";
 
 interface ServerData {
   squares: Square[];
@@ -22,6 +23,9 @@ export class squareService {
    public getJSON(): Observable<Square[]> {
       return this.http
         .get<Square[]>(this.squaresUrl)
+   }
+
+   public getNextBox(currentBox) {
 
    }
 }

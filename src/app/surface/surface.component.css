@@ -1,0 +1,8 @@
+#surface{
+    display:grid;
+    width: 900px;
+    grid-template-columns: 500px 300px;
+    grid-gap: 10px;
+    background-color: lightskyblue;
+    border: 2px solid green;
+}
