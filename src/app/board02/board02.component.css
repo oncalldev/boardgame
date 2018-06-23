@@ -66,3 +66,6 @@ body {
     position: absolute;
     /* width and height can be anything, as long as they're equal */
   }
+  .result {
+    margin-left: 10px;
+  }

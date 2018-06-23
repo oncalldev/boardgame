@@ -10,6 +10,7 @@ import { TesthttpComponent } from './testhttp/testhttp.component';
 import { TestFilterComponent } from './testfilter/testfilter.component';
 import { squareService } from '../app/square.service';
 import { messageService } from '../app/message.service';
+import { generalService } from '../app/services/general.service';
 import { boardService} from '../app/services/board.service';
 import { TestrxjsComponent } from './testrxjs/testrxjs.component';
 import { Board01Component } from './board01/board01.component';
@@ -44,7 +45,8 @@ import { SurfaceComponent } from './surface/surface.component';
   ],
   providers: [squareService,
               messageService,
-              boardService],
+              boardService,
+              generalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,6 +5,8 @@
       [ngStyle]="{ 'grid-area' : box.gridArea, 'background-color' : box.bgColor, 'visibility' : box.visibility }">{{i+1}}  
       <!-- [ngStyle]="{ 'grid-area' : box, 'color': 'red', 'background-color' : 'green' }">{{i+1}} -->
     </div>
+  </div>
+  <div class="result" >Dice Roll: <span id="result">{{value | async}}</span></div>
     <!-- <div class="info">
       Information
     </div>

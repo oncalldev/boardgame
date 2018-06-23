@@ -2,8 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { boardService } from '../services/board.service';
+import { generalService } from '../services/general.service';
+import { playerService} from '../services/player.service';
+
 import { Board } from '../models/board';
 import { Box } from '../models/box';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'aas-board02',
@@ -14,11 +18,18 @@ export class Board02Component implements OnInit {
   board: Board;
   boxes: Box[];
   myTimer: any;
+  numPlayers: number;
 
-  constructor(private boardsvc : boardService) { }
+  public value: Observable<string>;
+
+  constructor(private boardsvc : boardService,
+              private generalSvc: generalService,
+              private playerSvc: playerService) { }
 
   ngOnInit() {
+    this.value = this.generalSvc.getValue();
     this.getBoard();
+    this.setPlayers();
     this.displayBoard();
   }
 
@@ -34,6 +45,12 @@ export class Board02Component implements OnInit {
         console.log(err.message);
       } 
     )
+  }
+
+  setPlayers() {
+    
+    this.playerSvc.setPlayers().subscribe(data => this.numPlayers = data.length);
+
   }
 
   movePlayer(event) {
@@ -82,5 +99,4 @@ export class Board02Component implements OnInit {
           return 'visible';
   }   
   }
-
 }
