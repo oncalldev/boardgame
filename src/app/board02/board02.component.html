@@ -7,6 +7,10 @@
     </div>
   </div>
   <div class="result" >Dice Roll: <span id="result">{{value | async}}</span></div>
+  <button class="btn btn-info" (click)="getPlayerCount($event)">Get Player Number</button>
+  <span>{{numPlayers}}</span>
+  <button class="btn btn-info" (click)="getPlayers($event)">Get Players</button>
+  <p id="answer">Answer</p>
     <!-- <div class="info">
       Information
     </div>

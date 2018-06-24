@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, Subscriber} from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { Player } from '../models/player';
 @Injectable({
@@ -34,13 +34,20 @@ numberOfPlayers : number;
     return this.http
     .get("./configuration/players.json")
     .pipe (
-      map (data => this.players = data as Player[]),
-      tap( data => this.numberOfPlayers = (data as Player[]).length)
-    ).subscribe();
+      tap ( data => {
+        this.players = data as Player[],
+        this.numberOfPlayers = (data as Player[]).length
+      } ),       
+      map ( data => (data as Player[]).length)
+      )
   }
   
   getPlayerCount() : number {
     return this.players.length;
+  }
+
+  getPlayers() : Player[] {
+    return this.players;
   }
 
   getPlayersTest() {

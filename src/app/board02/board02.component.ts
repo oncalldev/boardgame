@@ -8,6 +8,7 @@ import { playerService} from '../services/player.service';
 import { Board } from '../models/board';
 import { Box } from '../models/box';
 import { Observable } from 'rxjs';
+import { async } from 'rxjs/internal/scheduler/async';
 
 @Component({
   selector: 'aas-board02',
@@ -29,7 +30,7 @@ export class Board02Component implements OnInit {
   ngOnInit() {
     this.value = this.generalSvc.getValue();
     this.getBoard();
-    this.setPlayers();
+    this.setPlayers2();
     this.displayBoard();
   }
 
@@ -47,10 +48,21 @@ export class Board02Component implements OnInit {
     )
   }
 
-  setPlayers() {
-    
-    this.playerSvc.setPlayers().subscribe(data => this.numPlayers = data.length);
+  setPlayers2() {
+    this.playerSvc.setPlayers2().subscribe (
+      data => {
+        this.numPlayers = data as number,
+        console.log("Number of Players: " + this.numPlayers)
+      }
+    )
+  }
 
+  getPlayerCount() {
+    return this.playerSvc.getPlayerCount();
+  }
+
+  getPlayers() {
+    return this.playerSvc.getPlayers();
   }
 
   movePlayer(event) {
