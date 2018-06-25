@@ -7,6 +7,7 @@ import { playerService} from '../services/player.service';
 
 import { Board } from '../models/board';
 import { Box } from '../models/box';
+import { Player } from '../models/player';
 import { Observable } from 'rxjs';
 import { async } from 'rxjs/internal/scheduler/async';
 
@@ -19,7 +20,9 @@ export class Board02Component implements OnInit {
   board: Board;
   boxes: Box[];
   myTimer: any;
+  players: Player[];
   numPlayers: number;
+  numBoxes: number;
 
   public value: Observable<string>;
 
@@ -30,7 +33,7 @@ export class Board02Component implements OnInit {
   ngOnInit() {
     this.value = this.generalSvc.getValue();
     this.getBoard();
-    this.setPlayers2();
+    this.setPlayers();
     this.displayBoard();
   }
 
@@ -40,16 +43,23 @@ export class Board02Component implements OnInit {
       data => {
         this.board = data as Board;
         this.boxes = this.board.boxes;
-        console.log(this.boxes);
+        console.log("Number of Boxes: " + this.board.boxes.length);
       },
       (err: HttpErrorResponse) => {
         console.log(err.message);
       } 
     )
   }
+  getBoxes() { 
+    return this.boardsvc.getBoxes();
+  }
 
-  setPlayers2() {
-    this.playerSvc.setPlayers2().subscribe (
+  getBoxId(boxId : string) {
+    return this.boardsvc.getBoxId(boxId);
+  }
+
+  setPlayers() {
+    this.playerSvc.setPlayers().subscribe (
       data => {
         this.numPlayers = data as number,
         console.log("Number of Players: " + this.numPlayers)
@@ -62,24 +72,26 @@ export class Board02Component implements OnInit {
   }
 
   getPlayers() {
-    return this.playerSvc.getPlayers();
+    this.players = this.playerSvc.getPlayers();
+    console.log(this.players);
+    return this.players;
   }
 
-  movePlayer(event) {
-    var box1 = document.getElementById("1/1/2/2");
-    var box2 = document.getElementById("1/2/2/3");
-    var box11 = document.getElementById("4/2/5/3");
-    var player1 = document.getElementById("player1"); 
-    var player2 = document.getElementById("player2"); 
+  movePlayer(player : Player, boxId : string) {
+    // var box1 = document.getElementById("1/1/2/2");
+    // var box2 = document.getElementById("1/2/2/3");
+    // var box11 = document.getElementById("4/2/5/3");
+    // var player1 = document.getElementById("player1"); 
+    // var player2 = document.getElementById("player2"); 
 
-    var obj = { 
-      player: player1, 
-      incr: 0
-    };
+    // var obj = { 
+    //   player: player1, 
+    //   incr: 0
+    // };
     
 
     //this.slowMove(player1);
-    this.myTimer = setInterval(this.slowMove, 500, obj);
+    //this.myTimer = setInterval(this.slowMove, 500, obj);
 
     // player1.style.left = (box1.offsetLeft + 20).toString() + "px";
     // player1.style.top = (box1.offsetTop + 20).toString() + "px";

@@ -1,8 +1,13 @@
 #surface{
     display:grid;
     width: 900px;
-    grid-template-columns: 500px 300px;
+    grid-template-columns: 500px 200px 300px;
     grid-gap: 10px;
     background-color: lightskyblue;
     border: 2px solid green;
+}
+#buttons {
+    width:100px;
+    height:600px;
+    border: 2px solid black;
 }

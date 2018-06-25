@@ -1,29 +1,22 @@
 
 
   <div class="wrapper">
-    <div *ngFor= 'let box of boxes; let i = index' class="box" [id] = box.gridArea
+    <div *ngFor= 'let box of getBoxes(); let i = index' class="box" [id] = box.gridArea
       [ngStyle]="{ 'grid-area' : box.gridArea, 'background-color' : box.bgColor, 'visibility' : box.visibility }">{{i+1}}  
       <!-- [ngStyle]="{ 'grid-area' : box, 'color': 'red', 'background-color' : 'green' }">{{i+1}} -->
     </div>
   </div>
   <div class="result" >Dice Roll: <span id="result">{{value | async}}</span></div>
-  <button class="btn btn-info" (click)="getPlayerCount($event)">Get Player Number</button>
-  <span>{{numPlayers}}</span>
-  <button class="btn btn-info" (click)="getPlayers($event)">Get Players</button>
-  <p id="answer">Answer</p>
-    <!-- <div class="info">
-      Information
-    </div>
+  <br>
+  <div *ngFor = 'let player of getPlayers()' class="circle {{player.color}}" [id] = player.id></div>
+  <!-- <div id="player1" class="circle red"></div> -->
+  <!-- <div [id]='players[1]' class="circle yellow"></div> -->
+  <div *ngIf="players">{{players[0].id}}{{players[1].id}}</div>
+
+  <div id="buttons">
+    <button class="btn btn-info" (click)="getBoxId('L14')">Get Box Id</button>    
+    <button class="btn btn-info" (click)="movePlayer($event)"  >Click Me</button>
+    <button class="btn btn-info" (click)="getPlayers()">Get Players</button>
+    <button class="btn btn-info" (click)="movePlayer(players[0], 'L14')">Move Player</button>
   </div>
-  <div id="action">
-    <div class="action_split"></div>
-    <div class="action_split"></div>
-    <div class="action_split"></div>
-  </div> -->
 
-<!-- <button class="btn" (click)="movePlayer($event)"  >Click Me</button>
-<br>
-
-<div id="player1" class="circle red"></div>
-<br>
-<div id="player2" class="circle yellow"></div> -->

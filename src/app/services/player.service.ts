@@ -14,23 +14,7 @@ numberOfPlayers : number;
 
   constructor(private http:HttpClient) { }
 
-  setPlayers(){
-    return this.http
-      .get("./configuration/players.json")
-      .subscribe(
-        data =>  {
-          this.players = data as Player[];
-          this.numberOfPlayers = this.players.length;
-          console.log(this.numberOfPlayers);
-          console.log(this.players);
-        },
-        (err: HttpErrorResponse) => {
-          console.log(err.message);
-        }
-        
-      )
-  }
-  setPlayers2() {
+  setPlayers() {
     return this.http
     .get("./configuration/players.json")
     .pipe (
