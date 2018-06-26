@@ -20,6 +20,7 @@ import { Testhttp02Component } from './testhttp02/testhttp02.component';
 import { Board02Component } from './board02/board02.component';
 import { ActionComponent } from './action/action.component';
 import { SurfaceComponent } from './surface/surface.component';
+import { TestupdateComponent } from './testupdate/testupdate.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SurfaceComponent } from './surface/surface.component';
     Testhttp02Component,
     Board02Component,
     ActionComponent,
-    SurfaceComponent
+    SurfaceComponent,
+    TestupdateComponent
   ],
   imports: [
     BrowserModule,

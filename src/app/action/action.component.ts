@@ -33,7 +33,8 @@ export class ActionComponent implements OnInit {
   diceRoller(numberOfDice : number) : number {
     // numberOfDice is not brought into consideration here - just testing.
     var die1 = Math.floor( (Math.random() * 6) + 1);
-    var die2 = Math.floor( (Math.random() * 6) + 1); 
+    var die2 = 0;
+    //var die2 = Math.floor( (Math.random() * 6) + 1); 
     return die1 + die2;
   }
 }

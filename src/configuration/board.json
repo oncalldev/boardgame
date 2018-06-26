@@ -6,6 +6,7 @@
     "box_height" : "100",
     "default_box_background_color" : "green",
     "default_text_color" : "black",
+    "origin" : "L1",
     "boxes" : 
     [
         {
@@ -133,7 +134,7 @@
             "gridArea" : "4/3/5/4",
             "color" : "red",
             "bgColor" : "blue",
-            "next" : "L9",
+            "next" : "L15",
             "prior" : "L12"
 
         },

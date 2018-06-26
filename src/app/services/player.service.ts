@@ -40,7 +40,7 @@ numberOfPlayers : number;
       .subscribe(
         data =>  {
           this.players = data as Player[];
-          console.log(this.players);
+          //console.log(this.players);
         },
         (err: HttpErrorResponse) => {
           console.log(err.message);

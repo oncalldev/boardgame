@@ -7,5 +7,6 @@ export class Board {
     box_width: number;
     default_box_bg_color: string;
     default_text_color : string;
+    origin : string;
     boxes : Box[];
   }
