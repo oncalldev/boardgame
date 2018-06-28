@@ -17,7 +17,13 @@
             "color" : "red",
             "bgColor" : "blue",
             "next" : "L2",
-            "prior" : "L4"
+            "prior" : "L4",
+            "resources" :
+                {
+                    "money" : 1,
+                    "credits" : 101,
+                    "goody" : "Magic Wand"
+                }
         },
         {
             "id" : "L2",
@@ -27,8 +33,13 @@
             "color" : "red",
             "bgColor" : "blue",
             "next" : "L3",
-            "prior" : "L1"
-
+            "prior" : "L1",
+            "resources" :
+                {
+                    "money" : 2,
+                    "credits" : 102,
+                    "goody" : "Oiled Pig"
+                }
         },
         {
             "id" : "L3",
@@ -38,7 +49,13 @@
             "color" : "red",
             "bgColor" : "blue",
             "next" : "L6",
-            "prior" : "L2"
+            "prior" : "L2",
+            "resources" :
+                {
+                    "money" : 3,
+                    "credits" : 103,
+                    "goody" : "Flaming Duck"
+                }
 
         },
         {
@@ -49,7 +66,13 @@
             "color" : "red",
             "bgColor" : "blue",
             "next" : "L1",
-            "prior" : "L7"
+            "prior" : "L7",
+            "resources" :
+                {
+                    "money" : 4,
+                    "credits" : 104,
+                    "goody" : "Death Laser"
+                }
 
         },
         {
@@ -70,7 +93,13 @@
             "color" : "red",
             "bgColor" : "blue",
             "next" : "L9",
-            "prior" : "L3"
+            "prior" : "L3",
+            "resources" :
+                {
+                    "money" : 6,
+                    "credits" : 106,
+                    "goody" : "Old Cheese"
+                }
 
         },
         {
@@ -81,7 +110,13 @@
             "color" : "red",
             "bgColor" : "blue",
             "next" : "L4",
-            "prior" : "L10"
+            "prior" : "L10",
+            "resources" :
+                {
+                    "money" : 7,
+                    "credits" : 107,
+                    "goody" : "Ham Sandwich"
+                }
 
         },
         {
@@ -103,7 +138,13 @@
             "color" : "red",
             "bgColor" : "blue",
             "next" : "L12",
-            "prior" : "L6"
+            "prior" : "L6",
+            "resources" :
+                {
+                    "money" : 9,
+                    "credits" : 109,
+                    "goody" : "Sharp Stick"
+                }
         },
         {
             "id" : "L10",
@@ -113,7 +154,13 @@
             "color" : "red",
             "bgColor" : "blue",
             "next" : "L7",
-            "prior" : "L13"
+            "prior" : "L13",
+            "resources" :
+                {
+                    "money" : 10,
+                    "credits" : 110,
+                    "goody" : "Pointy Thing"
+                }
 
         },
         {
@@ -135,7 +182,13 @@
             "color" : "red",
             "bgColor" : "blue",
             "next" : "L15",
-            "prior" : "L12"
+            "prior" : "L12",
+            "resources" :
+                {
+                    "money" : 12,
+                    "credits" : 112,
+                    "goody" : "Bowl of Oatmeal"
+                }
 
         },
         {
@@ -146,7 +199,13 @@
             "color" : "red",
             "bgColor" : "blue",
             "next" : "L10",
-            "prior" : "L14"
+            "prior" : "L14",
+            "resources" :
+                {
+                    "money" : 13,
+                    "credits" : 113,
+                    "goody" : "Golden Egg"
+                }
 
         },
         {
@@ -157,7 +216,13 @@
             "color" : "red",
             "bgColor" : "blue",
             "next" : "L13",
-            "prior" : "L15"
+            "prior" : "L15",
+            "resources" :
+                {
+                    "money" : 14,
+                    "credits" : 114,
+                    "goody" : "Grilled Cheese"
+                }
 
         },
         {
@@ -168,7 +233,13 @@
             "color" : "red",
             "bgColor" : "blue",
             "next" : "L14",
-            "prior" : "L12" 
+            "prior" : "L12" ,
+            "resources" :
+                {
+                    "money" : 5,
+                    "credits" : 115,
+                    "goody" : "Bag of Chips"
+                }
         }
     ]    
 }

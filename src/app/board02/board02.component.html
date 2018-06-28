@@ -6,7 +6,7 @@
       <!-- [ngStyle]="{ 'grid-area' : box, 'color': 'red', 'background-color' : 'green' }">{{i+1}} -->
     </div>
   </div>
-  <div class="result" >{{title}} - Dice Roll: <span id="result">{{value | async}}</span></div>
+  <div class="result" >{{title}} - Dice Roll: <span id="result">{{diceRoll | async}}</span></div>
   <br>
   <div *ngFor = 'let player of getPlayers()' class="player {{player.color}}" [id] = player.id></div>
   <!-- <div id="player1" class="circle red"></div> -->
@@ -18,6 +18,6 @@
     <button class="btn btn-info" (click)="movePlayer($event)"  >Click Me</button>
     <button class="btn btn-info" (click)="getPlayers()">Get Players</button>
     <button class="btn btn-info" (click)="movePlayersToOrigin(players, board)">Move To Origin</button>
-    <button class="btn btn-info" (click)="movePlayerNumber(players[0], getBoxes(), 3)">Move 3 Spaces</button>
+    <button class="btn btn-info" (click)="movePlayerNumber(players[0], getBoxes(), 1)">Move 3 Spaces</button>
   </div>
 

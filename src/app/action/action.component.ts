@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { generalService } from '../services/general.service';
+import { Board02Component } from '../board02/board02.component';
+import { Board } from '../models/board';
 
 @Component({
   selector: 'aas-action',
@@ -7,7 +9,7 @@ import { generalService } from '../services/general.service';
   styleUrls: ['./action.component.css']
 })
 export class ActionComponent implements OnInit {
-
+  private bc: Board02Component;
   constructor( private generalSvc : generalService) { }
 
   ngOnInit() {
@@ -17,6 +19,7 @@ export class ActionComponent implements OnInit {
     var dice = this.diceRoller(2);
     document.getElementById("dice_results").innerHTML = dice.toString();
     this.generalSvc.setValue(dice.toString());
+    this.bc.displayMessage();
     console.log("Dice Rolled");
   }
 

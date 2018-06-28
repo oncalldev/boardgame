@@ -4,13 +4,29 @@
         "status" : "A",
         "location" : "L1",
         "color" : "red",
-        "money" : 0
+        "resources" :
+        {
+            "money" : 0,
+            "credits" : 0,
+            "goodies" :
+                [
+
+                ]
+        }
     },
     {
         "id" : "P2",
         "status" : "A",
         "location" : "L1",
         "color" : "yellow",
-        "money" : 0
+        "resources" :
+        {
+            "money" : 0,
+            "credits" : 0,
+            "goodies" :
+                [
+                    
+                ]
+        }
     }
 ]

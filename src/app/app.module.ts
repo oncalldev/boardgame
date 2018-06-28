@@ -21,6 +21,7 @@ import { Board02Component } from './board02/board02.component';
 import { ActionComponent } from './action/action.component';
 import { SurfaceComponent } from './surface/surface.component';
 import { TestupdateComponent } from './testupdate/testupdate.component';
+import { TestfindComponent } from './testfind/testfind.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TestupdateComponent } from './testupdate/testupdate.component';
     Board02Component,
     ActionComponent,
     SurfaceComponent,
-    TestupdateComponent
+    TestupdateComponent,
+    TestfindComponent
   ],
   imports: [
     BrowserModule,

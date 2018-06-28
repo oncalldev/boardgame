@@ -7,4 +7,9 @@ export class Box {
     bgColor: string;
     next: string;
     prior: string;
+    resources : {
+      money: number,
+      credits : number,
+      goody : string
+    }
   }
