@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Square} from "./square"; 
+import { Square} from "../models/square"; 
 import { catchError, map, tap, filter,take} from 'rxjs/operators';
-import { Box } from "./models/box";
+import { Box } from "../models/box";
 
 interface ServerData {
   squares: Square[];

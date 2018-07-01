@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { messageService } from './message.service';
+import { messageService } from './services/message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap, filter,take} from 'rxjs/operators';
 
-import { Square } from './square';
+import { Square } from './models/square';
 
 
 const httpOptions = {

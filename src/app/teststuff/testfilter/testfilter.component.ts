@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { filter, map } from 'rxjs/operators';
 import { of, pipe } from 'rxjs';
-import { CityPopulation } from '../citypopulation';
+import { CityPopulation } from '../../models/citypopulation'
 
 @Component({
   selector: 'aas-testfilter',

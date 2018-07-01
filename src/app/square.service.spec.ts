@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { SquareService } from './square.service';
+import { SquareService } from './services/square.service';
 
 describe('SquareService', () => {
   beforeEach(() => {

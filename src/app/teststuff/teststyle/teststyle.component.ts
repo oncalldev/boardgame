@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Square } from "../square";
+import { Square } from "../../models/square";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, filter,take} from 'rxjs/operators';
-import { messageService } from '../message.service';
-import { squareService  } from '../square.service';
+import { messageService } from '../../services/message.service';
+import { squareService  } from '../../services/square.service';
 
 
 @Component({

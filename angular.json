@@ -27,6 +27,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",  
               "src/styles.css"
             ],
+            
             "scripts": []
           },
           "configurations": {
@@ -91,6 +92,7 @@
               "src/tsconfig.spec.json"
             ],
             "exclude": [
+              "**/src/app/teststuff/**",
               "**/node_modules/**"
             ]
           }
@@ -113,6 +115,7 @@
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
             "exclude": [
+              "teststuff",
               "**/node_modules/**"
             ]
           }

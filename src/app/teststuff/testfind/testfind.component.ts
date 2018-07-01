@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Player, Goody} from '../models/player';
+import { Player, Goody} from '../../models/player';
 
 @Component({
   selector: 'aas-testfind',

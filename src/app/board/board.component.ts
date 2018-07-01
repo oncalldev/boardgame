@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { squareService } from '../square.service';
-import { Square } from '../square';
+import { squareService } from '../services/square.service';
+import { Square } from '../models/square';
 
 
 @Component({

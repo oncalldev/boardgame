@@ -8,8 +8,8 @@ import { MaterialModule} from './shared/material.module';
 
 
 
-import { squareService } from '../app/square.service';
-import { messageService } from '../app/message.service';
+import { squareService } from '../app/services/square.service';
+import { messageService } from '../app/services/message.service';
 import { generalService } from '../app/services/general.service';
 import { boardService} from '../app/services/board.service';
 
@@ -19,6 +19,8 @@ import { Board02Component } from './board02/board02.component';
 import { ActionComponent } from './action/action.component';
 import { SurfaceComponent } from './surface/surface.component';
 import { TesttooltipComponent } from './testtooltip/testtooltip.component';
+
+import { NgxPopper } from 'angular-popper';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { TesttooltipComponent } from './testtooltip/testtooltip.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPopper
   ],
   providers: [squareService,
               messageService,
