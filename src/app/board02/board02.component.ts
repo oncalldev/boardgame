@@ -12,6 +12,7 @@ import { Goody } from '../models/player';
 import { Observable, interval, pipe, BehaviorSubject} from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 import { async } from 'rxjs/internal/scheduler/async';
+import { PlaymasterService } from '../services/playmaster.service';
 
 @Component({
   selector: 'aas-board02',
@@ -32,7 +33,8 @@ export class Board02Component implements OnInit {
 
   constructor(private boardsvc : BoardService,
               private generalSvc: GeneralService,
-              private playerSvc: PlayerService)
+              private playerSvc: PlayerService,
+              private playMasterSvc: PlaymasterService)
                { }
 
   ngOnInit() {
@@ -44,9 +46,18 @@ export class Board02Component implements OnInit {
     this.displayBoard();
   }
 
+  initializeGame(evnt) {
+    this.getBoard();
+    this.getBoxes();
+  }
+  
+  testPlayers(evnt){
+    this.playMasterSvc.testPlayerTurn();
+  }
+
   getBoard() {
 
-    this.boardsvc.getBoard().subscribe(
+    this.playMasterSvc.initBoard().subscribe(
       data => {
         this.board = data as Board;
         this.boxes = this.board.boxes;

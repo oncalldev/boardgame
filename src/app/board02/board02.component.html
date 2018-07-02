@@ -1,7 +1,7 @@
 
 
   <div class="wrapper">
-    <div *ngFor= 'let box of getBoxes(); let i = index' class="box" [id] = box.id
+    <div *ngFor= 'let box of boxes; let i = index' class="box" [id] = box.id
       [ngStyle]="{ 'grid-area' : box.gridArea, 'background-color' : box.bgColor, 'visibility' : box.visibility }">{{i+1}}  
       <!-- [ngStyle]="{ 'grid-area' : box, 'color': 'red', 'background-color' : 'green' }">{{i+1}} -->
     </div>
@@ -16,8 +16,8 @@
   <div *ngIf="players">{{players[0].id}}{{players[1].id}}</div>
 
   <div id="buttons">
-    <button class="btn btn-info" (click)="getBoxId('L14')">Get Box Id</button>    
-    <button class="btn btn-info" (click)="movePlayer($event)"  >Click Me</button>
+    <button class="btn btn-info" (click)="initializeGame($event)">Initialize Game</button>    
+    <button class="btn btn-info" (click)="testPlayers($event)"  >Test Players</button>
     <button class="btn btn-info" (click)="getPlayers()">Get Players</button>
     <button class="btn btn-info" (click)="movePlayersToOrigin(players, board)">Move To Origin</button>
     <button class="btn btn-info" (click)="movePlayerNumber(players[0], getBoxes(), 1)">Move 3 Spaces</button>
