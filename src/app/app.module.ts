@@ -8,10 +8,11 @@ import { MaterialModule} from './shared/material.module';
 
 
 
-import { squareService } from '../app/services/square.service';
-import { messageService } from '../app/services/message.service';
-import { generalService } from '../app/services/general.service';
-import { boardService} from '../app/services/board.service';
+import { SquareService } from '../app/services/square.service';
+import { MessageService } from '../app/services/message.service';
+import { GeneralService } from '../app/services/general.service';
+import { BoardService} from '../app/services/board.service';
+import { PlaymasterService } from '../app/services/playmaster.service';
 
 import { Board01Component } from './board01/board01.component';
 
@@ -39,10 +40,11 @@ import { NgxPopper } from 'angular-popper';
     HttpClientModule,
     NgxPopper
   ],
-  providers: [squareService,
-              messageService,
-              boardService,
-              generalService],
+  providers: [SquareService,
+              MessageService,
+              BoardService,
+              PlaymasterService,
+              GeneralService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

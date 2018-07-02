@@ -7,7 +7,7 @@ import { Player } from '../models/player';
 @Injectable({
   providedIn: 'root'
 })
-export class playerService {
+export class PlayerService {
 players : Player[];
 player : Player;
 numberOfPlayers : number;

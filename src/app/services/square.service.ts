@@ -12,7 +12,7 @@ interface ServerData {
 @Injectable({
   providedIn: 'root'
 })
-export class squareService {
+export class SquareService {
   squares: Square[];
   private squaresUrl = "./configuration/squares5.json";
 

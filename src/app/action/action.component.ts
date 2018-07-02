@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { generalService } from '../services/general.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { GeneralService } from '../services/general.service';
 import { Board02Component } from '../board02/board02.component';
 import { Board } from '../models/board';
 
@@ -10,8 +10,8 @@ import { Board } from '../models/board';
 })
 export class ActionComponent implements OnInit {
   private bc: Board02Component;
-  constructor( private generalSvc : generalService) { }
-
+  constructor( private generalSvc : GeneralService) { }
+  @Input() diceRoll: Board02Component;
   ngOnInit() {
   }
 
@@ -21,6 +21,7 @@ export class ActionComponent implements OnInit {
     this.generalSvc.setValue(dice.toString());
     this.bc.displayMessage();
     console.log("Dice Rolled");
+    //this.diceRoll.movePlayerNumber();
   }
 
   pickCard(event){

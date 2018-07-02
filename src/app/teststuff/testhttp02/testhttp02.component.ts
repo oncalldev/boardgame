@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
-import { boardService } from '../../services/board.service';
+import { BoardService } from '../../services/board.service';
 import { detectChangesInternal } from '@angular/core/src/render3/instructions';
 
 class Box {
@@ -29,7 +29,7 @@ class Board {
 })
 export class Testhttp02Component implements OnInit {
 
-  constructor(private boardsvc : boardService) { }
+  constructor(private boardsvc : BoardService) { }
   board: Board;
 
   ngOnInit() {

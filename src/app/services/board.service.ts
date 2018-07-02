@@ -8,7 +8,7 @@ import { Box } from '../models/box';
 @Injectable({
   providedIn: 'root'
 })
-export class boardService {
+export class BoardService {
 board: Board;
 boxes: Box[];
 selectedBox : Box;

@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-export class generalService {
+export class GeneralService {
   private valueObs: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
   public setValue(value: string):void {

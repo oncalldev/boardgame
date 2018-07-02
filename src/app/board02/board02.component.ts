@@ -1,9 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
-import { boardService } from '../services/board.service';
-import { generalService } from '../services/general.service';
-import { playerService} from '../services/player.service';
+import { BoardService } from '../services/board.service';
+import { GeneralService } from '../services/general.service';
+import { PlayerService} from '../services/player.service';
 
 import { Board } from '../models/board';
 import { Box } from '../models/box';
@@ -30,9 +30,9 @@ export class Board02Component implements OnInit {
 
   public diceRoll: Observable<string>;
 
-  constructor(private boardsvc : boardService,
-              private generalSvc: generalService,
-              private playerSvc: playerService)
+  constructor(private boardsvc : BoardService,
+              private generalSvc: GeneralService,
+              private playerSvc: PlayerService)
                { }
 
   ngOnInit() {

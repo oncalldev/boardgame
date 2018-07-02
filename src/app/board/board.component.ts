@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { squareService } from '../services/square.service';
+import { SquareService } from '../services/square.service';
 import { Square } from '../models/square';
 
 
@@ -13,7 +13,7 @@ export class BoardComponent implements OnInit {
   public squares: Square[];
   public square: Square;
 
-  constructor(private _squareService: squareService){}
+  constructor(private _SquareService: SquareService){}
   
   ngOnInit() {
     //this.getSquares();
@@ -22,7 +22,7 @@ export class BoardComponent implements OnInit {
     }
 
   // getSquares(): void {
-  //   this._squareService.getSquares()
+  //   this._SquareService.getSquares()
   //   .subscribe(
   //     sq => {
   //     this.squares = sq;
@@ -31,7 +31,7 @@ export class BoardComponent implements OnInit {
   // }
 
   // getSquare(id:string): void {
-  //   this._squareService.getSquare(id)
+  //   this._SquareService.getSquare(id)
   //   .subscribe(square => {
   //     console.log("Returned from Service");
   //     this.square = square;
@@ -41,7 +41,7 @@ export class BoardComponent implements OnInit {
   // }
 
   // getSquareMap(id:string): void {
-  //   this._squareService.getSquareMap(id)
+  //   this._SquareService.getSquareMap(id)
   //   .subscribe(square => {
   //     console.log("Returned from Service");
   //     this.square = square[0];

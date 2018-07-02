@@ -3,8 +3,8 @@ import { Square } from "../../models/square";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, filter,take} from 'rxjs/operators';
-import { messageService } from '../../services/message.service';
-import { squareService  } from '../../services/square.service';
+import { MessageService } from '../../services/message.service';
+import { SquareService  } from '../../services/square.service';
 
 
 @Component({
@@ -33,12 +33,12 @@ export class TeststyleComponent implements OnInit {
   private squareID: string;
 
   constructor(
-    private squareService: squareService,
-    private messageService: messageService) { }
+    private SquareService: SquareService,
+    private MessageService: MessageService) { }
 
   ngOnInit() {
     this.color = this.colorred;
-    this.squareService.getJSON().subscribe(
+    this.SquareService.getJSON().subscribe(
       data => this.setSquares(data),
       error => console.log("Error"),
       () => this.logSubscribe()

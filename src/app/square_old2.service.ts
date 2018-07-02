@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { messageService } from './services/message.service';
+import { MessageService } from './services/message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap, filter,take} from 'rxjs/operators';
 
@@ -12,13 +12,13 @@ const httpOptions = {
 };
 
 @Injectable()
-export class squareService {
+export class SquareService {
   private squaresUrl = './configuration/squares5.json';  // URL to web api
   squares : Square[];
 
   constructor(
     private http: HttpClient,
-    private messageService: messageService) { }
+    private MessageService: MessageService) { }
 
   /** GET square by id. Will 404 if id not found */
   getSquarex(id: string): Observable<Square> {
@@ -90,7 +90,7 @@ getSquares (): Observable<Square[]> {
 }
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    this.messageService.add('SquareService: ' + message);
+    this.MessageService.add('SquareService: ' + message);
   }
 
   

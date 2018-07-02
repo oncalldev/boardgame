@@ -5,7 +5,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { map } from "rxjs/operators";
 
 @Injectable()
-export class squareService {
+export class SquareService {
   private _url= 'configuration/squares.json';
   constructor(private _http: HttpClient) {}
 
