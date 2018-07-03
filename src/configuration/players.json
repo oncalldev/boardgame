@@ -4,6 +4,7 @@
         "status" : "A",
         "location" : "L1",
         "color" : "red",
+        "track" : "",
         "resources" :
         {
             "money" : 0,
@@ -19,6 +20,7 @@
         "status" : "A",
         "location" : "L1",
         "color" : "yellow",
+        "track" : "",
         "resources" :
         {
             "money" : 0,
@@ -28,5 +30,37 @@
                     
                 ]
         }
-    }
+    },
+    {
+        "id" : "P3",
+        "status" : "D",
+        "location" : "L1",
+        "color" : "blue",
+        "track" : "",
+        "resources" :
+        {
+            "money" : 0,
+            "credits" : 0,
+            "goodies" :
+                [
+
+                ]
+        }
+    },
+    {
+        "id" : "P4",
+        "status" : "D",
+        "location" : "L1",
+        "color" : "green",
+        "track" : "",
+        "resources" :
+        {
+            "money" : 0,
+            "credits" : 0,
+            "goodies" :
+                [
+
+                ]
+        }
+    }      
 ]

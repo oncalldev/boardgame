@@ -22,12 +22,14 @@ import { PlaymasterService } from '../services/playmaster.service';
 export class Board02Component implements OnInit {
 
   board: Board;
+  box: Box;
   boxes: Box[];
   myTimer: any;
   players: Player[];
   numPlayers: number;
   numBoxes: number;
   title: string = "Board";
+  debug : boolean = false;
 
   public diceRoll: Observable<string>;
 
@@ -38,17 +40,14 @@ export class Board02Component implements OnInit {
                { }
 
   ngOnInit() {
-    this.diceRoll = this.generalSvc.getValue();
-    this.getBoard();
-    this.setPlayers();
-    this.getPlayers();
-    //this.movePlayersToOrigin(this.players, this.board);
-    this.displayBoard();
+    // For the time being we're going to let the button iniialize the game
   }
 
   initializeGame(evnt) {
     this.getBoard();
     this.getBoxes();
+    this.getPlayers();
+    this.setPlayersToOrigin();
   }
   
   testPlayers(evnt){
@@ -56,7 +55,7 @@ export class Board02Component implements OnInit {
   }
 
   getBoard() {
-
+    this.debugLog("Getting board");
     this.playMasterSvc.initBoard().subscribe(
       data => {
         this.board = data as Board;
@@ -68,6 +67,10 @@ export class Board02Component implements OnInit {
         console.log(err.message);
       } 
     )
+  }
+
+  getStartBox() : string {
+
   }
   getBoxes() { 
     return this.boardsvc.getBoxes();
@@ -82,12 +85,11 @@ export class Board02Component implements OnInit {
     let box = boxes.find( bx => bx.id == boxId);
     return box;
   }
-
-  setPlayers() {
-    this.playerSvc.setPlayers().subscribe (
+  getPlayers() {
+    this.playMasterSvc.initPlayers().subscribe (
       data => {
-        this.numPlayers = data as number,
-        console.log("Number of Players: " + this.numPlayers)
+        this.players = data as Player[];
+        this.numPlayers = this.players.length;
       }
     )
   }
@@ -96,13 +98,21 @@ export class Board02Component implements OnInit {
     return this.playerSvc.getPlayerCount();
   }
 
-  getPlayers() {
-    this.players = this.playerSvc.getPlayers();
-    //console.log(this.players);
-    return this.players;
+  setPlayersToOrigin()
+  {
+    this.debugLog("Setting Players to Origin");
+    this.playMasterSvc.movePlayersToOrigin();
+    this.displayAllPlayers();
+    // find origin location
+    // for 1 to number of players go that location
+
   }
 
-  movePlayersToOrigin(players : Player[], board : Board)
+  displayAllPlayers() {
+
+  }
+
+  setPlayersToOrigin_Original(players : Player[], board : Board)
   {
     var offset : number = 0;
     console.log("moving players to origin");
@@ -113,6 +123,8 @@ export class Board02Component implements OnInit {
       offset += 25;
     }
   }
+
+
   displayMessage() {
     console.log("Message From Action");
   }
@@ -180,6 +192,11 @@ export class Board02Component implements OnInit {
     console.log("Displaying Board");
   }
 
+  debugLog(msg:string)
+  {
+    if(this.debug) console.log(msg);
+  }
+
   convertStatus(status : string) : string {
     switch(status) {
       case 'H':
@@ -187,6 +204,6 @@ export class Board02Component implements OnInit {
 
       default:
           return 'visible';
-  }   
+    }   
   }
 }

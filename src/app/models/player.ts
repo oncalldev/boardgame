@@ -9,6 +9,7 @@ export class Player {
     status: string;
     location: string;
     color: string;
+    track : string;
     resources : {
       money : number,
       credits : number,
