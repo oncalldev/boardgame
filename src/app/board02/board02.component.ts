@@ -103,29 +103,16 @@ export class Board02Component implements OnInit {
     this.debugLog(this.players);
     // find origin location
     // for 1 to number of players go that location
-
   }
 
   displayAllPlayers() {
 
   }
 
-  setPlayersToOrigin_Original(players : Player[], board : Board)
-  {
-    var offset : number = 0;
-    console.log("moving players to origin");
-    let box = board.boxes.find( bx => bx.id == board.origin);
-    for (var player of players)
-    {
-      this.movePlayer(player, box.id, offset);
-      offset += 25;
-    }
-  }
-
-
   displayMessage() {
     console.log("Message From Action");
   }
+
   movePlayerNumber(player : Player, boxes : Box[], numBoxes : number)
   {
 
@@ -145,7 +132,10 @@ export class Board02Component implements OnInit {
         currentBox = boxes.find(bx=> bx.id == nextBoxId);
         nextBoxId = currentBox.next;
       });
-
+  }
+  
+  rollDice() {
+    this.playMasterSvc.takeTurn();
   }
 
   movePlayer(player : Player, boxId : string, offset : number) {

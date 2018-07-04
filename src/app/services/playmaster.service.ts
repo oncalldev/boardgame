@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Observable, pipe, interval } from 'rxjs';
+import { map, tap, take } from 'rxjs/operators';
 import { Board } from '../models/board';
 import { Box } from '../models/box';
 import { Player } from '../models/player';
@@ -38,10 +38,19 @@ gameStatus : GameStatus = new GameStatus();
       .pipe (
         tap ( data=> {
             this.board = data as Board,
-            this.boxes = this.board.boxes
+            this.boxes = this.board.boxes,
+            this.initGameStatus()
         })
       )
   }
+
+  initGameStatus() {
+    this.gameStatus.timestarted = new Date();
+    this.gameStatus.timepaused = null;
+    this.gameStatus.playorder = ["P2","P1","P3","P4"];
+    this.gameStatus.lastplayer = null;
+    this.gameStatus.currentplayer = null;
+  }  
 
   initPlayers() {
     return this.http
@@ -67,14 +76,78 @@ gameStatus : GameStatus = new GameStatus();
     }
   }
 
-  initGameStatus() {
-    this.gameStatus.timestarted = new Date();
-    this.gameStatus.timepaused = null;
-    this.gameStatus.playorder = ["P2","P1","P3"];
-    this.gameStatus.lastplayer = null;
-    this.gameStatus.currentplayer = null;
+  takeTurn(){
+    var playerId = this.whoseTurn();
+    var diceRoll = this.rollDice(1);
+    this.movePlayer(this.getPlayer(playerId), diceRoll);
   }
 
+  getPlayer(playerId : string) : Player
+  {
+    var player = this.players.find(plyr => plyr.id == playerId);
+    return player;
+  }
+
+  getBox(boxId : string) : Box
+  {
+    var box = this.boxes.find(bx =>bx.id == boxId);
+    return box;
+  }
+  movePlayer(player : Player, numBoxes : number)
+  {
+
+    var currentLocation = player.location;
+    var currentBox = this.boxes.find(bx => bx.id == currentLocation);
+    var nextBoxId = currentBox.next;
+    //var die = this.generalSvc.getValue();
+    
+    const moveBox = interval(500);
+    moveBox
+      .pipe(
+          take(Number(numBoxes) )
+        ).subscribe( () => {
+        this.movePlayerOnBoard(player, nextBoxId);
+        let box = this.getBox(nextBoxId);
+        this.addAssetsToPlayer (player, box);
+        currentBox = this.boxes.find(bx=> bx.id == nextBoxId);
+        nextBoxId = currentBox.next;
+      });
+
+  }
+
+  addAssetsToPlayer(player :Player, box : Box) {
+    player.resources.money += box.resources.money;
+    player.resources.credits += box.resources.credits;
+    this.addGoodiesToPlayer( player, box.resources.goody )
+    console.log(player);
+  }
+
+  addGoodiesToPlayer(player:Player, goody: string) {
+    // Need to check if the player already has the goody, if yes:
+    // add to quantity of goody, if not add goody
+    //currentBox = boxes.find(bx=> bx.id == nextBoxId);
+    player.resources.goodies.find( g=> g.description == goody);
+  }
+
+  movePlayerOnBoard(player : Player, boxId : string) {
+    // we really need to bring in more than just the boxId to make sure that we're going
+    // to a box that exists.
+
+    var currentPlayer = document.getElementById(player.id);
+    var moveToBox = document.getElementById(boxId);
+    player.location = boxId;
+    var track = player.track;
+
+    currentPlayer.style.left = (moveToBox.offsetLeft + this.getLeftOffset(track) ).toString() + "px";
+    currentPlayer.style.top = (moveToBox.offsetTop + 15 + this.getTopOffset(track)).toString() + "px";
+  }
+
+  rollDice(numDice:number) : number {
+    // Assume for now that we're just going to throw a single die
+    var die1 : number = Math.floor( (Math.random() * 6) + 1);
+    var die2 : number = 0;
+    return die1 + die2;
+  }
 
   whoseTurn() : string {
     // find out the turn of the players
@@ -116,20 +189,6 @@ gameStatus : GameStatus = new GameStatus();
     for (let player of this.players) {
         this.movePlayer(player, boxId);
     }
-  }
-
-  movePlayer(player : Player, boxId : string) {
-    // we really need to bring in more than just the boxId to make sure that we're going
-    // to a box that exists.
-
-    var currentPlayer = document.getElementById(player.id);
-    var moveToBox = document.getElementById(boxId);
-    player.location = boxId;
-    var track = player.track;
-
-    currentPlayer.style.left = (moveToBox.offsetLeft + this.getLeftOffset(track) ).toString() + "px";
-    currentPlayer.style.top = (moveToBox.offsetTop + 15 + this.getTopOffset(track)).toString() + "px";
-
   }
 
   getTopOffset(track : string) : number {

@@ -11,7 +11,7 @@ import { Board } from '../models/board';
 export class ActionComponent implements OnInit {
   private bc: Board02Component;
   constructor( private generalSvc : GeneralService) { }
-  @Input() diceRoll: Board02Component;
+ 
   ngOnInit() {
   }
 
