@@ -29,7 +29,7 @@ export class Board02Component implements OnInit {
   numPlayers: number;
   numBoxes: number;
   title: string = "Board";
-  debug : boolean = false;
+  debug : boolean = true;
 
   public diceRoll: Observable<string>;
 
@@ -40,14 +40,15 @@ export class Board02Component implements OnInit {
                { }
 
   ngOnInit() {
+    //this.getBoard_Hold();
     // For the time being we're going to let the button iniialize the game
   }
 
   initializeGame(evnt) {
     this.getBoard();
-    this.getBoxes();
+    //this.getBoxes();
     this.getPlayers();
-    this.setPlayersToOrigin();
+    //this.setPlayersToOrigin();
   }
   
   testPlayers(evnt){
@@ -55,7 +56,8 @@ export class Board02Component implements OnInit {
   }
 
   getBoard() {
-    this.debugLog("Getting board");
+    console.log("Get Board");
+    //this.debugLog("Getting board");
     this.playMasterSvc.initBoard().subscribe(
       data => {
         this.board = data as Board;
@@ -69,13 +71,6 @@ export class Board02Component implements OnInit {
     )
   }
 
-  getStartBox() : string {
-
-  }
-  getBoxes() { 
-    return this.boardsvc.getBoxes();
-  }
-
   getBoxId(boxId : string) {
     return this.boardsvc.getBoxId(boxId);
   }
@@ -85,11 +80,13 @@ export class Board02Component implements OnInit {
     let box = boxes.find( bx => bx.id == boxId);
     return box;
   }
+
   getPlayers() {
     this.playMasterSvc.initPlayers().subscribe (
       data => {
         this.players = data as Player[];
         this.numPlayers = this.players.length;
+        console.log(this.players);
       }
     )
   }
@@ -102,7 +99,8 @@ export class Board02Component implements OnInit {
   {
     this.debugLog("Setting Players to Origin");
     this.playMasterSvc.movePlayersToOrigin();
-    this.displayAllPlayers();
+    this.players = this.playMasterSvc.getPlayers();
+    this.debugLog(this.players);
     // find origin location
     // for 1 to number of players go that location
 
@@ -192,7 +190,7 @@ export class Board02Component implements OnInit {
     console.log("Displaying Board");
   }
 
-  debugLog(msg:string)
+  debugLog(msg: any)
   {
     if(this.debug) console.log(msg);
   }

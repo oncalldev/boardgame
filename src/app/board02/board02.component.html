@@ -5,24 +5,30 @@
       [ngStyle]="{ 'grid-area' : box.gridArea, 'background-color' : box.bgColor, 'visibility' : box.visibility }">{{i+1}}  
       <!-- [ngStyle]="{ 'grid-area' : box, 'color': 'red', 'background-color' : 'green' }">{{i+1}} -->
     </div>
-
   </div>
-  <div class="tooltip">Hello</div>  
-  <div class="result" >{{title}} - Dice Roll: <span id="result">{{diceRoll | async}}</span></div>
+
+  <!-- <div class="tooltip">Hello</div>  
+  <div class="result" >{{title}} - Dice Roll: <span id="result">{{diceRoll | async}}</span></div> -->
   <br>
-  <div *ngFor = 'let player of getPlayers()' class="player {{player.color}}" [id] = player.id ></div>
-  <!-- <div id="player1" class="circle red"></div> -->
-  <!-- <div [id]='players[1]' class="circle yellow"></div> -->
-  <div *ngIf="players">{{players[0].id}}{{players[1].id}}</div>
+  <!-- <div id="bullpen">Bull Pen</div> -->
+  <div *ngIf="players">
+    <div *ngFor = 'let player of players' class="player {{player.color}}" [id] = player.id ></div>
+    <div id="player1" class="circle red"></div>
+    <div [id]='players[1]' class="circle yellow"></div>
+    <div>{{players[0].id}}---{{players[1].id}}</div>  
+  </div>
+
+  <!-- <div id="midBar">
+    MID-BAR
+  </div> -->
 
   <div id="buttons">
     <button class="btn btn-info" (click)="initializeGame($event)">Initialize Game</button>    
-    <button class="btn btn-info" (click)="setPlayersToBoard($event)"  >Move Players to Origin</button>
+    <button class="btn btn-info" (click)="setPlayersToOrigin($event)"  >Go To Origin</button>
     <button class="btn btn-info" (click)="getPlayers()">Get Players</button>
     <button class="btn btn-info" (click)="movePlayersToOrigin(players, board)">Move To Origin</button>
-    <button class="btn btn-info" (click)="movePlayerNumber(players[0], getBoxes(), 1)">Move 3 Spaces</button>
   </div>
-
+  
   <!-- <div class="tooltip">Hover over me
     <span class="tooltiptext">Tooltip text</span>
   </div> -->

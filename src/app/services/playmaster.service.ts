@@ -50,6 +50,7 @@ gameStatus : GameStatus = new GameStatus();
       tap ( data => {
         this.players = data as Player[],
         this.totalPlayers = (data as Player[]).length
+        this.assignTracksToPlayers()
       })
     )
   }  
@@ -104,6 +105,10 @@ gameStatus : GameStatus = new GameStatus();
   getBoardStartBox() : string {
     let box = this.board.boxes.find(bx=>bx.id == this.board.origin);
     return box.id;
+  }
+
+  getPlayers() : Player[] {
+    return this.players;
   }
 
   movePlayersToOrigin() {
