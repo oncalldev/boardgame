@@ -4,7 +4,7 @@ body {
   
   .box {
     background-color: #444;
-    color: #fff;
+    color: black;
     border-radius: 5px;
     padding: 20px;
     font-size: 150%;
@@ -54,7 +54,7 @@ body {
   }
 
   .blue {
-    background-color: blue;
+    background-color: lightblue;
   }
 
   .green {
@@ -69,11 +69,14 @@ body {
   }
   .player {
     border-radius: 50%;
-    width: 20px;
-    height: 20px; 
+    width: 25px;
+    height: 25px; 
     border: 1px solid black;
     margin: 10px;
     position:absolute;
+    text-align:center;
+    font-size: 10px;
+    font-style:bold;
   }
   .player:hover {
     visibility: visible;
@@ -92,8 +95,18 @@ body {
     background-color: lightgrey;
     position: absolute;
   }
+  
+  #rollresults {
+    display: inline-block;
+    font-size: 24px;
+    font-style: bold;
+    text-align:center;
+    width:50px;
+    height:50px;
+    background-color: grey;
+    margin: auto;
+  }
   #bullpen {
-
     width:330px;
     height:100px;
     border: 1px solid black;

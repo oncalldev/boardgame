@@ -29,6 +29,7 @@ export class Board02Component implements OnInit {
   numPlayers: number;
   numBoxes: number;
   title: string = "Board";
+  dice : number;
   debug : boolean = true;
 
   public diceRoll: Observable<string>;
@@ -113,68 +114,11 @@ export class Board02Component implements OnInit {
     console.log("Message From Action");
   }
 
-  movePlayerNumber(player : Player, boxes : Box[], numBoxes : number)
-  {
-
-    var currentLocation = player.location;
-    var currentBox = boxes.find(bx => bx.id == currentLocation);
-    var nextBoxId = currentBox.next;
-    //var die = this.generalSvc.getValue();
-    
-    const moveBox = interval(500);
-    moveBox
-      .pipe(
-          take(Number(numBoxes) )
-        ).subscribe( () => {
-        this.movePlayer(player, nextBoxId, 0);
-        let box = this.getBoxFromId(nextBoxId, this.boxes);
-        this.addAssetsToPlayer (player, box);
-        currentBox = boxes.find(bx=> bx.id == nextBoxId);
-        nextBoxId = currentBox.next;
-      });
-  }
-  
   rollDice() {
-    this.playMasterSvc.takeTurn();
+    this.dice = this.playMasterSvc.takeTurn();
+    //this.getPlayers();
   }
 
-  movePlayer(player : Player, boxId : string, offset : number) {
-    // we really need to bring in more than just the boxId to make sure that we're going
-    // to a box that exists.
-
-    var currentPlayer = document.getElementById(player.id);
-    var moveToBox = document.getElementById(boxId);
-    this.title = boxId;  // I was hoping this would force a change detect
-    player.location = boxId;
-
-    currentPlayer.style.left = (moveToBox.offsetLeft + 15).toString() + "px";
-    currentPlayer.style.top = (moveToBox.offsetTop + 15 + offset).toString() + "px";
-
-  }
-  addAssetsToPlayer(player :Player, box : Box) {
-    player.resources.money += box.resources.money;
-    player.resources.credits += box.resources.credits;
-    this.addGoodiesToPlayer( player, box.resources.goody )
-    console.log(player);
-  }
-
-  addGoodiesToPlayer(player:Player, goody: string) {
-    // Need to check if the player already has the goody, if yes:
-    // add to quantity of goody, if not add goody
-    //currentBox = boxes.find(bx=> bx.id == nextBoxId);
-    player.resources.goodies.find( g=> g.description == goody);
-  }
-
-  slowMove(obj) {
-
-      obj.player.style.left = (obj.player.offsetLeft + obj.incr).toString() + "px";
-      obj.incr += 30;
-      if (obj.incr > 200) {
-        clearInterval(this.myTimer)
-        console.log("Cleared");
-      }
-      console.log(obj.incr);
-  }
   
   displayBoard() {
     console.log("Displaying Board");

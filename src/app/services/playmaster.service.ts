@@ -76,10 +76,11 @@ gameStatus : GameStatus = new GameStatus();
     }
   }
 
-  takeTurn(){
+  takeTurn() : number {
     var playerId = this.whoseTurn();
     var diceRoll = this.rollDice(1);
     this.movePlayer(this.getPlayer(playerId), diceRoll);
+    return diceRoll;
   }
 
   getPlayer(playerId : string) : Player
@@ -93,12 +94,13 @@ gameStatus : GameStatus = new GameStatus();
     var box = this.boxes.find(bx =>bx.id == boxId);
     return box;
   }
+
   movePlayer(player : Player, numBoxes : number)
   {
-
     var currentLocation = player.location;
     var currentBox = this.boxes.find(bx => bx.id == currentLocation);
     var nextBoxId = currentBox.next;
+    var box : Box;
     //var die = this.generalSvc.getValue();
     
     const moveBox = interval(500);
@@ -107,26 +109,35 @@ gameStatus : GameStatus = new GameStatus();
           take(Number(numBoxes) )
         ).subscribe( () => {
         this.movePlayerOnBoard(player, nextBoxId);
-        let box = this.getBox(nextBoxId);
-        this.addAssetsToPlayer (player, box);
+        box = this.getBox(nextBoxId);
+        //this.addAssetsToPlayer (player, box);
         currentBox = this.boxes.find(bx=> bx.id == nextBoxId);
         nextBoxId = currentBox.next;
+      },
+      error => console.log("Error:", error),
+      ()=> {
+        this.addAssetsToPlayer(player, box);
+        console.log(player);
       });
-
   }
 
   addAssetsToPlayer(player :Player, box : Box) {
     player.resources.money += box.resources.money;
     player.resources.credits += box.resources.credits;
     this.addGoodiesToPlayer( player, box.resources.goody )
-    console.log(player);
   }
 
   addGoodiesToPlayer(player:Player, goody: string) {
     // Need to check if the player already has the goody, if yes:
     // add to quantity of goody, if not add goody
     //currentBox = boxes.find(bx=> bx.id == nextBoxId);
-    player.resources.goodies.find( g=> g.description == goody);
+    var found = player.resources.goodies.find( g=> g.description == goody);
+    if(found == undefined) {
+      player.resources.goodies.push({quantity: 1, description: goody})
+    }
+    else {
+      found.quantity++;
+    }
   }
 
   movePlayerOnBoard(player : Player, boxId : string) {
@@ -187,7 +198,7 @@ gameStatus : GameStatus = new GameStatus();
   movePlayersToOrigin() {
     var boxId = this.getBoardStartBox();
     for (let player of this.players) {
-        this.movePlayer(player, boxId);
+        this.movePlayerOnBoard(player, boxId);
     }
   }
 
