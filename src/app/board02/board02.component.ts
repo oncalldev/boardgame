@@ -102,8 +102,7 @@ export class Board02Component implements OnInit {
     this.playMasterSvc.movePlayersToOrigin();
     this.players = this.playMasterSvc.getPlayers();
     this.debugLog(this.players);
-    // find origin location
-    // for 1 to number of players go that location
+
   }
 
   displayAllPlayers() {

@@ -17,9 +17,9 @@ body {
   */
 
   .wrapper {
-    width: 330px;
+    width: 600px;
     display: grid;
-    grid-template-columns: repeat(3, 100px);
+    grid-template-columns: repeat(5, 100px);
     grid-template-rows: repeat(5,100px);
     grid-gap: 10px;
     margin:10px;
@@ -114,6 +114,7 @@ body {
   }
 
   #buttons {
+    margin-left: 200px;
     display:inline-block;
     width:150px;
     height:550px;

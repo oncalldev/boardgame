@@ -22,6 +22,7 @@ import { SurfaceComponent } from './surface/surface.component';
 import { TesttooltipComponent } from './testtooltip/testtooltip.component';
 
 import { NgxPopper } from 'angular-popper';
+import { TestdragdropComponent } from './testdragdrop/testdragdrop.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NgxPopper } from 'angular-popper';
     Board02Component,
     ActionComponent,
     SurfaceComponent,
-    TesttooltipComponent
+    TesttooltipComponent,
+    TestdragdropComponent
   ],
   imports: [
     BrowserModule,

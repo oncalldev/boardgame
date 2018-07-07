@@ -21,14 +21,15 @@
   <!-- <div id="midBar">
     MID-BAR
   </div> -->
+  <button class="btn btn-info" (click)="initializeGame($event)">Initialize Game</button> 
+  <button class="btn btn-info" (click)="setPlayersToOrigin($event)"  >Go To Origin</button>
+  <button class="btn btn-info" (click)="rollDice()">Roll Dice</button>  
+  
+  <!-- <div id="buttons">
 
-  <div id="buttons">
-    <button class="btn btn-info" (click)="initializeGame($event)">Initialize Game</button>    
-    <button class="btn btn-info" (click)="setPlayersToOrigin($event)"  >Go To Origin</button>
-    <button class="btn btn-info" (click)="rollDice()">Roll Dice</button>
     <span id="rollresults">{{dice}}</span>
     <button class="btn btn-info" (click)="movePlayersToOrigin(players, board)">Move To Origin</button>
-  </div>
+  </div> -->
   
   <!-- <div class="tooltip">Hover over me
     <span class="tooltiptext">Tooltip text</span>
