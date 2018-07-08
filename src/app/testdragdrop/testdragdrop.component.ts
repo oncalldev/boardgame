@@ -15,15 +15,13 @@ export class TestdragdropComponent implements OnInit {
  dragSrcEl: HTMLElement;
  cols : NodeListOf<HTMLInputElement>;
 
-
   constructor() { }
 
   ngOnInit() {
-    this.setEvents2();
+    this.setEvents();
   }
 
   setEvents() {
-
 
     this.cols = document.querySelectorAll('#columns .column');   
 
@@ -37,53 +35,35 @@ export class TestdragdropComponent implements OnInit {
         this.cols[i].addEventListener('dragleave', this.handleDragLeave, false);
 
         // this.cols[i].addEventListener('drop', this.handleDrop, false);
-        this.cols[1].addEventListener('drop',() => {this.doDrop(event, this.dragSrcEl);}, false )
+        this.cols[i].addEventListener('drop',() => {this.doDrop(event, this.dragSrcEl);}, false )
 
         //this.cols[i].addEventListener('dragend', this.handleDragEnd, false);
-        this.cols[1].addEventListener('dragend',() => {this.doDragEnd(event, this.cols);}, false )
+        this.cols[i].addEventListener('dragend',() => {this.doDragEnd(event, this.cols);}, false )
     };
+
   }
 
-  setEvents2() {
 
-    this.cols = document.querySelectorAll('#columns .column');  
-
-    [].forEach.call(this.cols, function(col) {
-      col.addEventListener('dragstart', () => {this.doDragStart(event, this.dragSrcEl);}, false);
-      col.addEventListener('dragenter', this.handleDragEnter, false);
-      col.addEventListener('dragover', this.handleDragOver, false);
-      col.addEventListener('dragleave', this.handleDragLeave, false);
-      col.addEventListener('drop', () => {this.doDrop(event, this.dragSrcEl);}, false);
-      col.addEventListener('dragend', () => {this.doDragEnd(event, this.cols);}, false);
-    });  
-  }
-
-  doDragStart(e, drg:HTMLElement){
+  doDragStart(e, drg:HTMLElement){ 
     e.target.style.opacity = '0.4';  // this / e.target is the source node.
 
-    drg = e.target;
-    console.log('DoDragStart');
-    console.log(drg);
-
+    e.dataTransfer.setData('sourceId',e.srcElement.id);
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', e.target.innerHTML);
+
   }
   // REPLACES
       handleDragStart(e) {
         e.target.style.opacity = '0.4';  // this / e.target is the source node.
         
         this.dragSrcEl = e.target;
-      
-        console.log("DragStart");
-        console.log(this.dragSrcEl);
 
         e.dataTransfer.effectAllowed = 'move';
         e.dataTransfer.setData('text/html', e.target.innerHTML);
-      
+
       }
 
   handleDragOver(e) {
-
     if (e.preventDefault) {
       e.preventDefault(); // Necessary. Allows us to drop.
     }
@@ -100,26 +80,18 @@ export class TestdragdropComponent implements OnInit {
   handleDragLeave(e) {
     e.target.classList.remove('over');  // this / e.target is previous target element.
   }
+
   doDrop(e, drg:HTMLElement) {
     if (e.stopPropagation) {
       e.stopPropagation(); // Stops some browsers from redirecting.
     }
-  
-    console.log("DoDrop_Before");
-    console.log(drg);
 
-  
-    // Don't do anything if dropping the same column we're dragging.
-  
-    if (drg != e.target) {
+    // Don't do anything if dropping the same column we're dragging.  
       // Set the source column's HTML to the HTML of the column we dropped on.
-      drg = e.target;
-      console.log("DoDrop_After");
-      console.log(drg);
-
+      var sourceId = e.dataTransfer.getData('sourceid');
+      document.getElementById(sourceId).innerHTML = e.target.innerHTML;
       e.target.innerHTML = e.dataTransfer.getData('text/html');
-    }
-  
+   
     return false;
   }
   //REPLACES
@@ -131,8 +103,8 @@ export class TestdragdropComponent implements OnInit {
       }
 
       console.log("Drop");
-      console.log(this.dragSrcEl);
-      console.log(e.target);
+      //console.log(this.dragSrcEl);
+      //console.log(e.target);
 
       // Don't do anything if dropping the same column we're dragging.
 

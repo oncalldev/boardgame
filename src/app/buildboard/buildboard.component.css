@@ -1,0 +1,24 @@
+body {
+    margin: 40px;
+  }
+  
+  .wrapper {
+    display: grid;
+    width: 650px;
+    height:650px;
+    grid-template-columns: repeat(9,50px);
+    grid-template-rows: repeat(9,50px);
+    grid-gap: 10px;
+    background-color: #fff;
+    color: #444;
+    border: 2px solid black;
+    padding: 10px;
+  }
+  
+  .box {
+    background-color: lightgrey;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 150%;
+  }
