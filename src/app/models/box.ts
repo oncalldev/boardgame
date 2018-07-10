@@ -7,6 +7,10 @@ export class Box {
     bgColor: string;
     next: string;
     prior: string;
+    offsetTop : number;
+    offsetLeft : number;
+    offsetWidth : number;
+    offsetHeight : number;
     resources : {
       money: number,
       credits : number,
