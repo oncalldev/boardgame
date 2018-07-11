@@ -174,4 +174,12 @@ export class BuildboardComponent implements OnInit {
       (this.boxes[selectedBox.westId].bgColor = adjColor);
     }
   }
+
+  mouseDown(event) {
+    console.log(document.getElementById(event.target.id));
+  }
+
+  mouseUp(event) {
+    console.log(document.getElementById(event.target.id));
+  }
 }

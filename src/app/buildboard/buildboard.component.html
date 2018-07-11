@@ -1,9 +1,20 @@
-<div class="wrapper">
+<div id="surface">
+    <div class="wrapper">
 
-    <div *ngFor= 'let box of boxes; let i = index' class="box" [id] = i (click)="toggleColor($event)"
-        [ngStyle]="{ 'background-color' : box ? box.bgColor : nonselectedBGColor }">{{i}}
+        <div *ngFor= 'let box of boxes; let i = index' class="box" [id] = i (click)="toggleColor($event)" (mousedown)="mouseDown($event)" (mouseup)="mouseUp($event)"
+            [ngStyle]="{ 'background-color' : box ? box.bgColor : nonselectedBGColor }">{{i}}
+        </div>
+
     </div>
-    <div>
-        <button (click)="initBoxOffsets($event)">InitBoxes</button>
+
+    <div id = "actionlist">
+        <div class="action">
+            
+        </div>
+        <div class="action"></div>
+        <div class="action"></div>
+        <div class="action"></div>
+        <div class="action"></div>
+        <div class="action"></div>    
     </div>
 </div>
