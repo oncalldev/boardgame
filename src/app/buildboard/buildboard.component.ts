@@ -7,6 +7,8 @@ export class xBox {
   offsetLeft: number;
   offsetHeight: number;
   offsetWidth: number;
+  row: number;
+  col: number;
   bgColor: string;
   northId: string;
   eastId: string;
@@ -14,11 +16,17 @@ export class xBox {
   westId: string;
 }
 
+// interface Array<T> {
+//   unique() : Array<T>;
+// }
+
 @Component({
   selector: 'aas-buildboard',
   templateUrl: './buildboard.component.html',
   styleUrls: ['./buildboard.component.css']
 })
+
+
 
 export class BuildboardComponent implements OnInit {
   boxes: xBox[] = new Array(100);
@@ -59,6 +67,8 @@ export class BuildboardComponent implements OnInit {
         offsetTop:element.offsetTop,
         offsetWidth:element.offsetWidth,
         bgColor:this.nonselectedBGColor,
+        row: null,
+        col: null,
         eastId:null,
         northId:null,
         westId:null,
@@ -182,4 +192,26 @@ export class BuildboardComponent implements OnInit {
   mouseUp(event) {
     console.log(document.getElementById(event.target.id));
   }
+
+  // Array.prototype.unique = function() {
+  
+  // }
+
+  testUnique(event) {
+    // Array.prototype.unique = function()
+    // {
+    //     var tmp = {}, out = [];
+    //     for(var i = 0, n = this.length; i < n; ++i)
+    //     {
+    //         if(!tmp[this[i]]) { tmp[this[i]] = true; out.push(this[i]); }
+    //     }
+    //     return out;
+    // }
+    
+    // var a = [1,2,2,7,4,1,'a',0,6,9,'a'];
+    // var b = a.unique();
+    // alert(a);
+    // alert(b);    
+  }
 }
+

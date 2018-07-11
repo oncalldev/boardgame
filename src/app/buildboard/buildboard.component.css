@@ -65,4 +65,13 @@
     border: 1px solid black;
     margin-bottom: 4px;
     background-color: lightblue;
+    position:relative;
+  }
+
+  .actionbutton {
+    position:absolute;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    bottom: 0px;
+    right: 5px;
   }
