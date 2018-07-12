@@ -1,7 +1,7 @@
 <div id="surface">
     <div class="wrapper">
 
-        <div *ngFor= 'let box of boxes; let i = index' class="box" [id] = i (click)="toggleColor($event)" (mousedown)="mouseDown($event)" (mouseup)="mouseUp($event)"
+        <div *ngFor= 'let box of boxes; let i = index' class="box" [id] = i (click)="toggleCol($event)"
             [ngStyle]="{ 'background-color' : box ? box.bgColor : nonselectedBGColor }">{{i}}
         </div>
 
@@ -18,6 +18,6 @@
         <div class="action"></div>
         <div class="action"></div>
         <div class="action"></div>
-        <div class="action"></div>    
+
     </div>
 </div>

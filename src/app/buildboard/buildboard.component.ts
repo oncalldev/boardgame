@@ -46,6 +46,9 @@ export class BuildboardComponent implements OnInit {
   rowlist: number[];
   collist: number[];
 
+  rowMax: number;
+  colMax: number;
+
   selectedBGColor: string = "grey";
   nonselectedBGColor:string = "lightgrey";
   adjBGColor:string = "pink";
@@ -60,6 +63,7 @@ export class BuildboardComponent implements OnInit {
     this.initBoxOffsets();
     this.generateOffsets(this.boxes);
     this.setRowsCols(this.boxes);
+    this.initRowsCols(this.boxes);
   }
   
   initBoxOffsets() {
@@ -104,6 +108,30 @@ export class BuildboardComponent implements OnInit {
     console.log(this.boxes[boxId]);
 
   }
+
+  toggleRow(event) {
+      var thisbox = this.boxes[Number(event.target.id)];
+      var newArray : xBox[] = this.boxes.filter ( function (el ) {
+        return el.row == thisbox.row;
+      });
+
+      for (let element of newArray){
+        element.bgColor = this.selectedBGColor;
+      }
+
+  }
+
+  toggleCol(event) {
+    var thisbox = this.boxes[Number(event.target.id)];
+    var newArray : xBox[] = this.boxes.filter ( function (el ) {
+      return el.col == thisbox.col;
+    });
+
+    for (let element of newArray){
+      element.bgColor = this.selectedBGColor;
+    }
+
+}  
 
   setAdjacentBoxes(selectedBox:xBox)
   {
@@ -205,8 +233,16 @@ export class BuildboardComponent implements OnInit {
   setRowsCols(boxes : xBox[]){
     this.rowlist = this.buildRows(uniqBy(boxes, 'offsetLeft').sort(this.compare_left));
     this.collist = this.buildCols(uniqBy(boxes, 'offsetTop').sort(this.compare_top));
-    console.log(this.rowlist);
-    console.log(this.collist);
+    this.rowMax = this.rowlist.length - 1;
+    this.colMax = this.collist.length - 1;
+  }
+
+  initRowsCols(boxes : xBox[]){
+    for (let box of boxes){
+      box.col = this.rowlist.indexOf(box.offsetLeft);
+      box.row = this.rowlist.indexOf(box.offsetTop);
+    }
+    console.log(this.boxes);
   }
 
   compare_left(a:Offset,b:Offset) {
