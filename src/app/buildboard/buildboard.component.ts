@@ -1,5 +1,11 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Box } from '../models/box';
+import { uniq, uniqBy, sortedUniq } from 'lodash';
+
+export class Offset {
+  offsetTop : number;
+  offsetLeft : number;
+}
 
 export class xBox {
   id: string;
@@ -37,6 +43,9 @@ export class BuildboardComponent implements OnInit {
   cols: number = 10;
   rows: number = 10;
 
+  rowlist: number[];
+  collist: number[];
+
   selectedBGColor: string = "grey";
   nonselectedBGColor:string = "lightgrey";
   adjBGColor:string = "pink";
@@ -49,6 +58,8 @@ export class BuildboardComponent implements OnInit {
 
   ngAfterViewInit() {
     this.initBoxOffsets();
+    this.generateOffsets(this.boxes);
+    this.setRowsCols(this.boxes);
   }
   
   initBoxOffsets() {
@@ -74,11 +85,8 @@ export class BuildboardComponent implements OnInit {
         westId:null,
         southId:null
       };
-      //console.log(this.boxes[i]);
 
     }
-
-    //console.log(this.boxes);
   }
 
   toggleColor(event) {
@@ -183,6 +191,56 @@ export class BuildboardComponent implements OnInit {
     if(selectedBox.westId != null) {
       (this.boxes[selectedBox.westId].bgColor = adjColor);
     }
+  }
+
+  generateOffsets(boxes : xBox[])
+  {
+    let offsets : Offset[] = [];
+    for (let box of boxes) {
+        offsets.push({offsetLeft:box.offsetLeft, offsetTop:box.offsetTop});
+    }
+    console.log(offsets);
+  }
+  
+  setRowsCols(boxes : xBox[]){
+    this.rowlist = this.buildRows(uniqBy(boxes, 'offsetLeft').sort(this.compare_left));
+    this.collist = this.buildCols(uniqBy(boxes, 'offsetTop').sort(this.compare_top));
+    console.log(this.rowlist);
+    console.log(this.collist);
+  }
+
+  compare_left(a:Offset,b:Offset) {
+    if (a.offsetLeft < b.offsetLeft)
+      return -1;
+    if (a.offsetLeft > b.offsetLeft)
+      return 1;
+    return 0;
+  }
+
+  compare_top(a:Offset,b:Offset) {
+    if (a.offsetTop < b.offsetTop)
+      return -1;
+    if (a.offsetTop > b.offsetTop)
+      return 1;
+    return 0;
+  }
+
+  buildRows(sortedleft : Offset[]) : number[] {
+    var rows : number[] = [];
+
+    for (let entry of sortedleft){
+        rows.push(entry.offsetLeft);
+    }
+    return rows;
+  }
+
+  buildCols(sortedtop : Offset[]) : number[] {
+    var cols : number[] = [];
+
+    for (let entry of sortedtop){
+      cols.push(entry.offsetTop);
+    }
+    return cols;
   }
 
   mouseDown(event) {
