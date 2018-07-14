@@ -45,6 +45,7 @@ export class TestdragdropComponent implements OnInit {
 
 
   doDragStart(e, drg:HTMLElement){ 
+    console.log("doDragStart");
     e.target.style.opacity = '0.4';  // this / e.target is the source node.
 
     e.dataTransfer.setData('sourceId',e.srcElement.id);
@@ -64,6 +65,7 @@ export class TestdragdropComponent implements OnInit {
       }
 
   handleDragOver(e) {
+    console.log("DragOver");
     if (e.preventDefault) {
       e.preventDefault(); // Necessary. Allows us to drop.
     }
@@ -73,15 +75,18 @@ export class TestdragdropComponent implements OnInit {
   }
 
   handleDragEnter(e) {
+    console.log("DragEnter");
   // this / e.target is the current hover target.
     e.target.classList.add('over');
   }
 
   handleDragLeave(e) {
+    console.log("DragLeave");
     e.target.classList.remove('over');  // this / e.target is previous target element.
   }
 
   doDrop(e, drg:HTMLElement) {
+    console.log("doDrop");
     if (e.stopPropagation) {
       e.stopPropagation(); // Stops some browsers from redirecting.
     }
@@ -96,13 +101,13 @@ export class TestdragdropComponent implements OnInit {
   }
   //REPLACES
       handleDrop(e) {
+      console.log("Drop");
       // this/e.target is current target element.
 
       if (e.stopPropagation) {
         e.stopPropagation(); // Stops some browsers from redirecting.
       }
 
-      console.log("Drop");
       //console.log(this.dragSrcEl);
       //console.log(e.target);
 
@@ -127,6 +132,7 @@ export class TestdragdropComponent implements OnInit {
   }
   // REPLACES
       handleDragEnd(e) {
+        console.log("DragEnd");
       // this/e.target is the source node.
         e.target.style.opacity = '1';
         for(let i=0; i < this.cols.length; i++) {

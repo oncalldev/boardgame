@@ -1,0 +1,98 @@
+/* Prevent the text contents of draggable elements from being selectable. */
+[draggable] {
+    user-select: none;
+  }
+  #surface {
+    float:left;
+    width:500px;
+    height:600px;
+  }
+  
+  #draglist {
+    width:175px;
+    height:500px;
+    border: 1px solid black;
+    float: left;
+    margin-right:20px;
+    color:white;
+    text-align: center;
+  }
+  .dragoption {
+    height: 50px;
+    width: 50px;
+    margin: 10px auto;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  
+  .bgred {
+    background-color: red;
+  }
+  .bgyellow { 
+    background-color: yellow;
+  }
+  .bggreen {
+    background-color: green;
+  }
+
+  .bgorange {
+    background-color: orange;
+  }
+
+  .bgblue {
+    background-color: blue;
+  }
+
+  #columns {
+    width: 500px;
+    height: 200px;
+    background-color: 1px solid black;
+  }
+  .column {
+    height: 150px;
+    width: 150px;
+    float: left;
+    border: 2px solid #666666;
+    background-color: #ccc;
+    margin-right: 5px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 3px #000;
+    text-align: center;
+    cursor: move;
+  }
+  .column header {
+    color: #fff;
+    text-shadow: #000 0 1px;
+    box-shadow: 5px;
+    padding: 5px;
+    background: -webkit-gradient(linear, left top, right top,
+                                 color-stop(0, rgb(0,0,0)),
+                                 color-stop(0.50, rgb(79,79,79)),
+                                 color-stop(1, rgb(21,21,21)));
+  
+    border-bottom: 1px solid #ddd;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .column.over {
+    border: 2px dashed #000;
+  }
+  #boxes {
+    width: 450px;
+    height: 150px;
+    border: 1px solid black;
+    background-color: lightcyan;
+  }
+  .box {
+    width: 120px;
+    height: 120px;
+    border: 1px solid black;
+    float: left;
+    margin: 10px;
+    color: white;
+    text-align: center;
+  }
+
+  .box.over {
+    border: 2px dashed #000;
+  }

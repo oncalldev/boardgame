@@ -25,6 +25,7 @@ import { NgxPopper } from 'angular-popper';
 import { TestdragdropComponent } from './testdragdrop/testdragdrop.component';
 import { BuildboardComponent } from './buildboard/buildboard.component';
 import { TestarrayComponent } from './testarray/testarray.component';
+import { Testdragdrop01Component } from './testdragdrop01/testdragdrop01.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TestarrayComponent } from './testarray/testarray.component';
     TesttooltipComponent,
     TestdragdropComponent,
     BuildboardComponent,
-    TestarrayComponent
+    TestarrayComponent,
+    Testdragdrop01Component
   ],
   imports: [
     BrowserModule,
