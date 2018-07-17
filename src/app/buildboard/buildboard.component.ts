@@ -33,15 +33,15 @@ export class xBox {
 })
 
 
-
 export class BuildboardComponent implements OnInit {
-  boxes: xBox[] = new Array(100);
+ 
+  boxes: xBox[] = new Array(25);
   bgDefaultColor: string = "lightgrey";
   bgHighLightColor : string = "red";
   red: string = "red";
   green: string = "green";
-  cols: number = 10;
-  rows: number = 10;
+  cols: number = 5;
+  rows: number = 5;
 
   rowlist: number[];
   collist: number[];
@@ -103,8 +103,8 @@ export class BuildboardComponent implements OnInit {
       this.boxes[boxId].bgColor = this.selectedBGColor;
     }
 
-    this.setAdjacentBoxes(this.boxes[boxId]);
-    this.setAdjacentColor(this.boxes[boxId], this.adjBGColor);
+    //this.setAdjacentBoxes(this.boxes[boxId]);
+    //this.setAdjacentColor(this.boxes[boxId], this.adjBGColor);
     console.log(this.boxes[boxId]);
 
   }
@@ -287,25 +287,11 @@ export class BuildboardComponent implements OnInit {
     console.log(document.getElementById(event.target.id));
   }
 
-  // Array.prototype.unique = function() {
-  
-  // }
-
-  testUnique(event) {
-    // Array.prototype.unique = function()
-    // {
-    //     var tmp = {}, out = [];
-    //     for(var i = 0, n = this.length; i < n; ++i)
-    //     {
-    //         if(!tmp[this[i]]) { tmp[this[i]] = true; out.push(this[i]); }
-    //     }
-    //     return out;
-    // }
-    
-    // var a = [1,2,2,7,4,1,'a',0,6,9,'a'];
-    // var b = a.unique();
-    // alert(a);
-    // alert(b);    
+  saveBoard(event){
+    //go through the entire board and save information
+    //relating to the currently saved board.
   }
+
+ 
 }
 

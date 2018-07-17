@@ -1,10 +1,11 @@
 <div id="surface">
     <div class="wrapper">
 
-        <div *ngFor= 'let box of boxes; let i = index' class="box" [id] = i (click)="toggleCol($event)"
+        <div *ngFor= 'let box of boxes; let i = index' class="box" [id] = i (click)="toggleColor($event)"
             [ngStyle]="{ 'background-color' : box ? box.bgColor : nonselectedBGColor }">{{i}}
         </div>
 
+        <button id="saveBoard" (click)="saveBoard($event)">Save Board</button>
     </div>
 
     <div id = "actionlist">

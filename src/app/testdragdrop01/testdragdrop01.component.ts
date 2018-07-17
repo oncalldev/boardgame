@@ -15,10 +15,12 @@ export class Testdragdrop01Component implements OnInit {
  boxes : NodeListOf<HTMLInputElement>;
  that: any;
  holdBGColor: string;
+ holdinnerHTML : string;
 
   constructor(
   ) { 
     this.handleDragStart = this.handleDragStart.bind(this);
+    this.handleDragEnter = this.handleDragEnter.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
     this.handleDragOver = this.handleDragOver.bind(this);
     this.handleDragLeave = this.handleDragLeave.bind(this);
@@ -64,7 +66,8 @@ export class Testdragdrop01Component implements OnInit {
     e.target.style.opacity = '0.2';  // this / e.target is the source node.
     e.dataTransfer.setData('sourceId', e.srcElement.id);
     e.dataTransfer.effectAllowed = 'copy';
-    e.dataTransfer.setData('text/html', e.target.innerHTML);
+    this.holdinnerHTML = e.target.innerHTML;
+    e.dataTransfer.setData('text/html', this.holdinnerHTML);
     this.holdBGColor = this.findBGColor(e.target.classList);
     e.dataTransfer.setData('bgColor', this.holdBGColor);
     //console.log(e);
@@ -94,14 +97,14 @@ export class Testdragdrop01Component implements OnInit {
 
   handleDragOver(e) {
 
-    console.log("DragOver");
+    //console.log("DragOver");
     if (e.preventDefault) {
       e.preventDefault(); // Necessary. Allows us to drop.
     }
-    this.removeBGColor(e.target);
+    // this.removeBGColor(e.target);
 
-    e.target.innerHTML = e.dataTransfer.getData('text/html');
-    e.target.classList.add(this.holdBGColor);
+    // e.target.innerHTML = e.dataTransfer.getData('text/html');
+    // e.target.classList.add(this.holdBGColor);
     //e.dataTransfer.dropEffect = 'copy';  // See the section on the DataTransfer object.
     
     //console.log(e);
@@ -111,6 +114,12 @@ export class Testdragdrop01Component implements OnInit {
 
   handleDragEnter(e) {
     console.log("DragEnter");
+    this.removeBGColor(e.target);
+
+    //e.target.innerHTML = e.dataTransfer.getData('text/html');
+    e.target.innerHTML = this.holdinnerHTML;
+    e.target.classList.add(this.holdBGColor);
+    
   // this / e.target is the current hover target.
     e.target.classList.add('over');
     //console.log(e);

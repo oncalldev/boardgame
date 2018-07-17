@@ -13,6 +13,7 @@ import { MessageService } from '../app/services/message.service';
 import { GeneralService } from '../app/services/general.service';
 import { BoardService} from '../app/services/board.service';
 import { PlaymasterService } from '../app/services/playmaster.service';
+import { CatService } from '../app/services/cat.service';
 
 import { Board01Component } from './board01/board01.component';
 
@@ -26,6 +27,9 @@ import { TestdragdropComponent } from './testdragdrop/testdragdrop.component';
 import { BuildboardComponent } from './buildboard/buildboard.component';
 import { TestarrayComponent } from './testarray/testarray.component';
 import { Testdragdrop01Component } from './testdragdrop01/testdragdrop01.component';
+import { TestlocalstorageComponent } from './testlocalstorage/testlocalstorage.component';
+
+import { TestwebapiComponent } from './testwebapi/testwebapi.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,9 @@ import { Testdragdrop01Component } from './testdragdrop01/testdragdrop01.compone
     TestdragdropComponent,
     BuildboardComponent,
     TestarrayComponent,
-    Testdragdrop01Component
+    Testdragdrop01Component,
+    TestlocalstorageComponent,
+    TestwebapiComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,8 @@ import { Testdragdrop01Component } from './testdragdrop01/testdragdrop01.compone
               MessageService,
               BoardService,
               PlaymasterService,
-              GeneralService],
+              GeneralService,
+              CatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
