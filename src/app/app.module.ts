@@ -5,7 +5,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BoardComponent} from './board/board.component';
 import { MaterialModule} from './shared/material.module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { SquareService } from '../app/services/square.service';
@@ -30,6 +30,7 @@ import { Testdragdrop01Component } from './testdragdrop01/testdragdrop01.compone
 import { TestlocalstorageComponent } from './testlocalstorage/testlocalstorage.component';
 
 import { TestwebapiComponent } from './testwebapi/testwebapi.component';
+import { TestinputComponent } from './testinput/testinput.component';
 
 @NgModule({
   declarations: [
@@ -45,13 +46,15 @@ import { TestwebapiComponent } from './testwebapi/testwebapi.component';
     TestarrayComponent,
     Testdragdrop01Component,
     TestlocalstorageComponent,
-    TestwebapiComponent
+    TestwebapiComponent,
+    TestinputComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    FormsModule,
     NgxPopper
   ],
   providers: [SquareService,

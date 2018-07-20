@@ -30,4 +30,8 @@ export class CatService {
   deleteCat(name: string) {
     return this.http.delete('http://localhost:5200/api/cat/' + name);
   }
+
+  clearCats() {
+    return this.http.delete('http://localhost:5200/api/cat/clear');
+  }
 }

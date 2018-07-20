@@ -1,3 +1,12 @@
-<p>
-  testwebapi works!
-</p>
+<div id="options">
+  <button (click)="getCats($event)">Get All Cats</button>
+  <button (click)="getCat($event, 'Lucy')">Get Lucy</button>
+  <button (click)="insertCat($event)">Insert Cat</button>
+  <button (click)="clearCats($event)">Clear Cats</button>
+  <div id="getName">
+    Enter cat's name: 
+    <input type="text" [(ngModel)]="catsName"/>-{{catsName}}
+    <!-- <button (click)="getCat($event, '{{catsName}}')">Get Lucy</button>     -->
+  </div>
+
+</div>
