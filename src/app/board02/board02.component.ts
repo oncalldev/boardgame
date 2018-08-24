@@ -41,11 +41,12 @@ export class Board02Component implements OnInit {
                { }
 
   ngOnInit() {
+    this.initializeGame();
     //this.getBoard_Hold();
     // For the time being we're going to let the button iniialize the game
   }
 
-  initializeGame(evnt) {
+  initializeGame() {
     this.getBoard();
     //this.getBoxes();
     this.getPlayers();

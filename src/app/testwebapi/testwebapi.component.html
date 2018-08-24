@@ -1,7 +1,20 @@
 <div id="options">
   <button (click)="getCats($event)">Get All Cats</button>
   <button (click)="getCat($event, 'Lucy')">Get Lucy</button>
+  <br />
+
+  <input [(ngModel)]="cat.name" #ctrl="ngModel" required minlength=5 size=40>
+  <p>Name: {{ cat.name }}</p>
+  <p>Valid: {{ ctrl.valid }}</p>
+
+  <input [(ngModel)]="cat.age" #ctrl2="ngModel" required size=10>
+  <p>Age: {{ cat.age }}</p>
+  <p>Valid: {{ ctrl2.valid }}</p>
+
   <button (click)="insertCat($event)">Insert Cat</button>
+  <br/>
+  <br/>
+
   <button (click)="clearCats($event)">Clear Cats</button>
   <div id="getName">
     Enter cat's name: 

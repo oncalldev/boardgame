@@ -5,6 +5,7 @@ export class Board {
     columns: number;
     levels: number;
     box_width: number;
+    box_height: number;
     default_box_bg_color: string;
     default_text_color : string;
     origin : string;

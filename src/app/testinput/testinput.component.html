@@ -1,1 +1,9 @@
+<input [(ngModel)]="name" #ctrl="ngModel" required minlength=5 size=40>
+<p>Value: {{ name }}</p>
+<p>Valid: {{ ctrl.valid }}</p>
 
+<input [(ngModel)]="age" #ctrl2="ngModel" required minlength=5 size=10>
+<p>Value: {{ age }}</p>
+<p>Valid: {{ ctrl2.valid }}</p>
+
+<button (click)="setValue()">Set value</button>

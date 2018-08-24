@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class TestwebapiComponent implements OnInit {
   cats: Cat[];
-  cat: Cat;
+  cat: Cat = new Cat();
 
   constructor(private catsvc : CatService) { }
 
@@ -39,7 +39,7 @@ export class TestwebapiComponent implements OnInit {
   }
 
   insertCat(evt) {
-    this.cat = {name : "Soxy", age: 20};
+    console.log(this.cat);
     this.catsvc.insertCat(this.cat).subscribe(
       data => 
       {
